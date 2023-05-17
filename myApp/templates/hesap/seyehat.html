@@ -1,0 +1,81 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block menu %}
+{% include 'part/second.navbar.html' %}
+  {% include 'part/fixedbottombar.html' %}
+{% endblock menu %}
+
+
+{% block content %}
+
+    <section class="container p-3 mb-3 hesap__section">
+        <a href="/hesap/" class="nav-link"> Hesap <i class="fa-solid fa-angle-right fa-sm me-3 ms-2"></i>İş için seyahat</a>
+        <h1 class="mt-2 hesap__h2">İş için seyahat</h1>
+    </section>
+
+    <div class="arrow__left">
+        <a href="/hesap/" class="nav-link"><i class="fa-solid fa-angle-left fa-xl"></i></a>
+    </div>
+
+    <div class="container p-3 hesap__container">
+      <div class="row">
+            <div class="col-xl-8 col-sm-12">
+                <h4>İş için Airbnb'ye katılın</h4>
+                <p class="mt-2 text-muted hesap__p">İş seyahatlerinde hatasız masraflandırma yapabilmek ve özel teklifler almak için iş e-postanızı ekleyin.</p>
+                <p class="mt-5 ms-1">İş e-posta adresi</p>
+                <div>
+                  <input id="emailInput" type="email" class="form-control"style="height: 50px;"> 
+                  <button id="submitButton" disabled type="button" class="hesap__email"><small>İş e-postası ekle</small></button>
+                </div>
+            </div>
+            <div class="col-4">
+              <div class="card border rounded-2 mb-3 p-3" style="width: 22rem;">
+                  <div class="card-body">
+                    <i class="fa-solid fa-mobile-screen fa-2xl mb-4" style="color: #FF385C;"></i>
+                    <h5 class="card-title">Bilgilerim neden burada gösterilmiyor?</h5>
+                    <p class="text-muted">Kimliğinizi korumak için bazı hesap bilgilerini gizliyoruz.</p>
+                  </div>
+                  <div class="card-body">
+                    <i class="fa-regular fa-file-lines fa-2xl mb-4" style="color: #FF385C;"></i></i>
+                      <h5 class="card-title">Hangi bilgiler düzenlenebilir?</h5>
+                      <p class="text-muted">Airbnb'nin kimliğinizi doğrulamak için kullandığı bilgiler değiştirilemez. İletişim bilgileri ve bazı kişisel bilgiler düzenlenebilir. Ancak bir sonraki rezervasyonunuz sırasında ya da bir kayıt oluştururken kimliğinizi doğrulamanızı isteyebiliriz.</p>
+                  </div>
+                  <div class="card-body">
+                    <i class="fa-solid fa-unlock fa-2xl mb-4" style="color: #FF385C;"></i>
+                      <h5 class="card-title">Başkalarıyla hangi bilgiler paylaşılmaktadır?</h5>
+                      <p class="text-muted">Airbnb, ev sahipleri ve misafirlerin iletişim bilgilerini yalnızca bir rezervasyon onaylandıktan sonra açıklar.</p>
+                  </div>
+              </div>
+            </div>
+      </div>
+    </div>
+
+    <script>
+        var emailInput = document.getElementById('emailInput');
+        var submitButton = document.getElementById('submitButton');
+
+        emailInput.addEventListener('input', function() {
+            var email = emailInput.value;
+
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (email.trim() !== '' && email.match(emailRegex)) {
+                submitButton.removeAttribute('disabled');
+                submitButton.style.opacity = 1;
+            } else {
+                submitButton.setAttribute('disabled', true);
+                submitButton.style.opacity = 0.5;
+            }
+        });
+
+        emailInput.addEventListener('blur', function() {
+            var email = emailInput.value;
+
+            if (email.trim() === '') {
+                submitButton.setAttribute('disabled', true);
+                submitButton.style.opacity = 0.5;
+            }
+        });
+    </script>
+{% endblock content %}

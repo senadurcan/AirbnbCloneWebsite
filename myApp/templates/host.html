@@ -1,0 +1,386 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="host-navbar">
+      <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 ">
+        <div class="col-md-3 mb-2 mb-md-0 host-logo">
+          <img src="{% static 'image/small-logo.png'%}" width="30px" height="30px" alt=""><a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+    
+          </a>
+        </div>
+        <!-- <div class="col-6 d-flex">
+          <button type="button" class="btn btn-hover color-11 text-white p-2 g-col-6">Sign-up</button>
+          <button type="button" class="btn btn-light btn-outline-dark flex-fill ">Bir Süper Ev Sahibiyle sohbet edin</button>
+        </div> -->
+        <div class="host-buttons d-flex" style="overflow: hidden;">
+  
+          {% if user.is_authenticated %}
+          <a href="{% url 'postForm' %}" class="button button1 hostBtn hostBtn-hover color-11 text-white nav-link ms-1" style=" display: flex; justify-content: center; align-items: center; "> 
+            <i class="uil uil-clinic-medical custom-icon" style="font-size: 28px;"></i> 
+            <span style="font-size: 17px;">Airbnb Start</span> 
+          </a>
+          <a class="hostBtn button2 btn btn-light btn-outline-secondary text-dark" href="#">Bir Süper Ev Sahibiyle sohbet edin </a>
+          {% else %}
+          <a href="{% url 'loginregister' %}" class="button button1 hostBtn hostBtn-hover color-11 text-white nav-link ms-1" style=" display: flex; justify-content: center; align-items: center; "> 
+            <i class="uil uil-clinic-medical custom-icon" style="font-size: 28px;"></i> 
+            <span style="font-size: 15px;">Airbnb Start</span> 
+          </a>
+          <button class="btn btn-light my-1 mb-1 border-dark py-2" href="#" >Bir Süper Ev Sahibiyle sohbet edin </button>
+          {% endif %}
+        </div>
+        
+      </header>
+    </div>
+  </div>
+</div>
+
+  <div class="container mt-5" style="padding-top: 100px;">
+    <div class="row">
+      <div class="col-xl-6 col-sm-12">
+        <h1 class="host-h1 display-3 fw-bold mb-2 mt-2 text-center" style=" color:#ff385c; font-size: 35px; ">Evinizi Airbnb'ye taşıyın</h1>
+      <h1 class="host-h1 display-2 fw-bold mb-2 mt-2 text-center" style=" color:#212529; font-size: 35px; ">Tahminî kazancınız</h1>
+      <div class="slider-container align-items-center justify-content-center text-align-center">
+        <div class="value-container align-items-center justify-content-center text-align-center">
+          <span id="demo">1000</span> <span class="tl" style="font-size: 60px;">&nbsp;₺</span>
+          <p style="color: gray; font-size:15px; font-weight:300; text-align:center"> <a href="https://www.airbnb.com.tr/host/homes" style="color:black">7 gece</a> (tahminî olarak gecelik 1.515 ₺ üzerinden)</p>
+        <input type="range" min="1000" max="50000" value = "0" class="slider" id="myRange"></div>
+        <p class="mb-5 mt-3" style="color: gray; font-size:13px; font-weight:300; text-align:center"> <a href="https://www.airbnb.com.tr/host/homes" style="color:#212529">Tahminî kazançlarınızı nasıl hesapladığımızı öğrenin</a></p>
+        <div class="host-search-bar rounded-5 d-flex mb-4" style="width: 350px;">
+          <i class="host-uil uil-search rounded-5"></i>
+          <div class="host-input"><strong>İstanbul</strong>
+            <input style="width:250px;" type="search-placeholder" placeholder="Yerin tamamı. 2 yatak odası">
+          </div>
+      </div>
+      </div>
+    </div>
+      <div class="col-xl-6 col-sm-12 maps">
+        <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48192.21068375024!2d29.028033431898063!3d40.981192498440144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac790b17ba89d%3A0xd2d24ea0437a7ee2!2zS2FkxLFrw7Z5L8Swc3RhbmJ1bA!5e0!3m2!1str!2str!4v1652652989141!5m2!1str!2str" width="100%" height="100%" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="container text-center mt-5">
+    <h1 class="h1-host">Airbnb Start ile evinizi kolayca Airbnb'ye taşıyın</h1>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <img src="https://a0.muscache.com/im/pictures/d888a8ef-ef5a-4da3-b608-06284bba4793.jpg?im_w=720&im_q=highq" class="d-sm-none rounded mx-auto d-block img-fluid">
+        <img src="https://a0.muscache.com/im/pictures/626d4ea7-0749-48a4-9f91-5c4e9d6af755.jpg?im_w=2560&im_q=highq" class="d-none d-sm-block img-fluid host-img-1">
+      </div>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-xl-4 col-sm-12">
+        <h5>Süper Ev Sahiplerinden bire bir rehberlik</h5>
+        <p style="color: gray; font-size:15px; font-weight:300 ">Sizi bölgenizdeki bir Süper Ev Sahibi ile <br> eşleştireceğiz.
+          Bu kişi, ilk sorunuzdan ilk misafirinize <br> kadar telefonla, görüntülü arama veya sohbet <br> yoluyla
+          size rehberlik edecek.
+        </p>
+      </div>
+      <div class="col-xl-4 col-sm-12">
+        <h5>İlk rezervasyonunuz için deneyimli bir misafir</h5>
+        <p style="color: gray; font-size:15px; font-weight:300 ">İlk rezervasyonunuz için Airbnb'de en az üç <br>
+          konaklaması ve iyi bir <br> geçmişi olan deneyimli bir misafiri ağırlamayı seçebilirsiniz.</p>
+      </div>
+      <div class="col-xl-4 col-sm-12">
+        <h5>Airbnb'den özel destek</h5>
+        <p style="color: gray; font-size:15px; font-weight:300 ">Yeni ev sahipleri, hesapla ilgili sorunlardan <br>
+          faturalandırma desteğine kadar her konuda size <br> yardımcı olabilecek, 
+          özel olarak eğitilmiş Topluluk <br> Desteği temsilcilerine tek dokunuşla erişebilir.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container gösterme mt-5 text-center">
+    <div class="row">
+      <div class="col d-xl-block d-sm-none">
+        <h3>Daha fazla bilgi edinmek ister misiniz?</h3>
+        <button class="btn btn-light my-1 mb-1 border-dark py-3" href="#" >Bir Süper Ev Sahibiyle sohbet edin </button>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="container mt-5 text-center mb-5">
+    <img src="https://a0.muscache.com/im/pictures/909871ff-a25a-4a0e-bede-838c08e9a69d.jpg?im_w=480&im_q=highq" style="width: 10%; height: 10%;" class="cover-logo">
+    <h1 class="mt-3 h1-host">Tepeden tırnağa koruma ile evinizi Airbnb'ye taşıyın</h1>
+  </div>
+
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th class="th-col" scope="col">Airbnb</th>
+          <th class="th-col" scope="col">Rakipler</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"></th>
+          <td>
+            <p class="mb-3"><strong>Misafirlerin kimliğini doğrulama</strong></p>
+            <p>Kapsamlı doğrulama sistemimiz, Airbnb'de rezervasyon  yapan misafirlerin kimliğini doğrulamak için <br> ad, adres, resmî kimlik vb. ayrıntıları kontrol eder.</p>
+          </td>
+          <th scope="col"><i class="fa-solid fa-check" style="color: #00a405;"></i></th>
+          <th scope="col"><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></th>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td>
+            <p class="mb-3"><strong>Rezervasyon taraması</strong></p>
+            <p>Tescilli teknolojimiz her rezervasyonda
+              yüzlerce faktörü analiz eder ve çevreye rahatsızlık veren partiler <br> ve mülk hasarı açısından 
+              yüksek riskli olarak görülen belirli rezervasyonları engeller.</p>
+          </td>
+          <td><i class="fa-solid fa-check" style="color: #00a405;"></i></td>
+          <td><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td>
+            <p class="mb-3"> <strong>3 milyon USD değerinde hasar koruması</strong> </p>
+            <p>Airbnb, misafirlerin evinize ve eşyalarınıza verdiği hasarı tazmin eder ve şu özel korumaları sunar:</p>
+          </td>
+          <td><i class="fa-solid fa-check" style="color: #00a405;"></i></td>
+          <td><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td colspan="1">Sanat eserleri ve değerli eşyalar</td>
+          <td><i class="fa-solid fa-check" style="color: #00a405;"></i></td>
+          <td><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td colspan="1">Arabalar ve tekneler</td>
+          <td><i class="fa-solid fa-check" style="color: #00a405;"></i></td>
+          <td><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td colspan="1">Evcil hayvan hasarı</td>
+          <td><i class="fa-solid fa-check" style="color: #00a405;"></i></td>
+          <td><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td colspan="1">Gelir kaybı</td>
+          <td><i class="fa-solid fa-check" style="color: #00a405;"></i></td>
+          <td><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td colspan="1">Derinlemesine temizlik</td>
+          <td><i class="fa-solid fa-check" style="color: #00a405;"></i></td>
+          <td><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td>
+            <p class="mb-3"> <strong>1 milyon USD değerinde sorumluluk sigortası</strong> </p>
+            <p>Kendinizi güvende hissetmezseniz uygulamamız özel olarak eğitilmiş güvenlik <br> destek ekibine gece gündüz tek dokunuşla erişmenizi sağlar.</p>
+          </td>
+          <td><i class="fa-solid fa-check" style="color: #00a405;"></i></td>
+          <td><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td>
+            <p class="mb-3"> <strong>24 saat Güvenlik Destek Hattı</strong> </p>
+            <p>Bir misafirin yaralanması veya eşyalarının hasar görmesi ya da çalınması gibi <br> nadir görülen durumlara karşı korunursunuz.</p>
+          </td>
+          <td><i class="fa-solid fa-check" style="color: #00a405;"></i></td>
+          <td><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container mt-2">
+    <p class="text-sm ms-4">Karşılaştırma, 22 Ekim itibarıyla herkese açık bilgilere ve büyük rakiplerin sunduğu ücretsiz tekliflere dayanır.<br> Ayrıntıları ve istisnaları 
+      <a href="https://www.airbnb.com.tr/host/homes" style="color:black">burada</a> bulabilirsiniz.</p>
+  </div>
+  
+  <div class="container mt-4 text-center">
+    <button class="btn btn-light my-1 mb-1 border-dark py-2" href="#" >Daha fazla bilgi edinin </button>
+  </div>
+
+  <div class="container-fluid" style="background-color: #f7f7f7;">
+  <div class="container mt-4 py-5 " style="background-color: #f7f7f7;">
+    
+      <div class="container mt-4 sorular">
+        <div class="row">
+          <div class="col-xl-6 col-sm-12">
+            <h2>Sorularınız yanıtlandı</h2>
+          </div>
+          <div class="col-xl-6 col-sm-12">
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" style="background-color: transparent;" >
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="background-color:transparent; border:none; color:#222222">
+                    Yerim Airbnb için uygun mu?
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse "  style="background-color:transparent; border:none; color:#222222" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p class="text-body-tertiary">Airbnb misafirleri her türlü yerle ilgilenir. Küçük evler, kulübeler, ağaç evler ve daha fazla türde kayıtlarımız var. Boş bir oda bile konaklamak için harika bir yer olabilir.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" style="background-color: transparent;">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="background-color:transparent; border:none; color:#222222">
+                    Her zaman ev sahipliği yapmak zorunda mıyım?
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" style="background-color:transparent; border:none; color:#222222" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p class="text-body-tertiary">Kesinlikle değilsiniz. Takviminizi siz kontrol edersiniz. Yılda bir kez, ayda birkaç gece veya daha sık ev sahipliği yapabilirsiniz.</div>
+                </div>
+              </div>
+      
+              <div class="accordion-item">
+                <h2 class="accordion-header" style="background-color: transparent;">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="background-color:transparent; border:none; color:#222222">
+                    Misafirlerle ne kadar etkileşim kurmalıyım?
+                  </button>
+                </h2>
+                <div id="collapse" class="accordion-collapse collapse" style="background-color:transparent; border:none; color:#222222" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p class="text-body-tertiary">Bu size bağlıdır. Bazı ev sahipleri, misafirlere yalnızca önemli anlarda, örneğin giriş yaptıklarında mesaj göndermeyi tercih ederken bazıları da misafirleriyle yüz yüze görüşmekten keyif alır. Size ve misafirlerinize uyan bir tarz bulacağınıza eminiz.</div>            </div>
+                </div>
+              </div>
+      
+              <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" style="background-color: transparent;" >
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseOne" style="background-color:transparent; border:none; color:#222222">
+                      Mükemmel bir Airbnb ev sahibi olmayla ilgili ipuçları var mı?
+                    </button>
+                  </h2>
+                  <div id="collapseFour" class="accordion-collapse collapse "  style="background-color:transparent; border:none; color:#222222" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <p class="text-body-tertiary">Temel ilkeleri uygulayarak oldukça ilerleme kaydedersiniz. Yerinizi temiz tutun, misafirlere hızlıca yanıt verin ve temiz havlu gibi gerekli olanakları sağlayın. Bazı ev sahipleri taze çiçekler koymak veya keşfedilecek yerel yerlerin bir listesini paylaşmak gibi kişisel bir dokunuş eklemek ister ancak bu elbette zorunlu değildir.
+                        Ev sahipliğiyle ilgili daha fazla ipucu için okumaya devam edin
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" style="background-color: transparent;">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseTwo" style="background-color:transparent; border:none; color:#222222">
+                      Airbnb'nin ücretleri nedir?
+                    </button>
+                  </h2>
+                  <div id="collapseFive" class="accordion-collapse collapse" style="background-color:transparent; border:none; color:#222222" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <p class="text-body-tertiary">Airbnb, ödemenizi aldığınızda rezervasyon ara toplamının genellikle %3'ü oranında bir sabit hizmet bedeli tahsil eder. Ayrıca rezervasyon sırasında misafirlerden de bir ücret alırız. Airbnb, birçok bölgede otomatik olarak sizin adınıza satış ve turizm vergileri tahsil edip öder.
+                        Ücretler hakkında daha fazla bilgi edinin</div>
+                  </div>
+                </div>
+    
+              </div>
+          </div>
+        </div>
+      </div>
+    <div>
+      <div class="container mt-3 bg-white  rounded-4">
+        <div class="row">
+         <div class="col-xl-6 col-sm-12">
+           <img src="https://a0.muscache.com/im/pictures/c19751e5-cd4f-41d0-898f-2580b60cae08.jpg?im_w=1200&im_q=highq" class="img-fluid">
+         </div>
+         <div class="col-xl-6 col-sm-12 text-start py-5">
+           <h1 class="mb-1">Başka sorularınız mı var?</h1>
+           <p class="mt-1">Sorularınızın yanıtlarını yakınınızdaki deneyimli bir Süper Ev Sahibinden alabilirsiniz.</p>
+           <button class="btn btn-light my-1 mb-1 border-dark py-3" href="#" >Bir Süper Ev Sahibiyle sohbet edin </button>
+         </div>
+        </div>
+       </div>
+    </div>
+</div>
+<hr>
+<div class="container host-footer">
+  <footer class="py-5">
+    <div class="row">
+      <div class="col-3">
+        <h5 class=" fs-6">Destek</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Yardım Merkezi</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">AirCover</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Engelli kişilere destek</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">İptal Seçenekleri</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">COVID-19 önlemlerimiz </a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Semtinizdeki sorunu bildirin </a></li>
+        </ul>
+      </div>
+
+      <div class="col-3">
+        <h5 class=" fs-6">Topluluk</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Airbnb.org: afet yardımı</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Ayrımcılıkla mücadele</a></li>
+        </ul>
+      </div>
+
+      <div class="col-3">
+        <h5 class=" fs-6">Ev sahipliği</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Evinizi Airbnb'ye taşıyın</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Ev sahipleri için AirCover</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Ev sahibi kaynaklarını keşfedin</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Topluluk formunu ziyaret edin</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Sorumlu ev sahipliği</a></li>
+        </ul>
+      </div>
+
+
+      <div class="col-3">
+        <h5 class=" fs-6">Airbnb</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Basın odası </a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Yeni özellikler hakkında bilgi</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Kurucularımızdan bir mektup</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Kariyer</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Yatırımcılar</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+     
+      <ul class="nav flex-column flex-sm-row">
+        <p class="mt-2 text-body-secondary">© 2023 Airbnb,Inc.</p>
+        <li class="nav-item me-sm-3"><a href="#" class="nav-link px-2 text-body-secondary">Gizlilik</a></li>
+        <li class="nav-item me-sm-3"><a href="#" class="nav-link px-2 text-body-secondary">Şartlar</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Site haritası</a></li>
+      </ul>
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a href="#" class="nav-link px-2 text-body-black"><i class="uil uil-globe">Türkçe (TR)</i></a></li>
+        <li class="ms-3"><a href="#" class="nav-link px-2 text-body-black"><i class="uil uil-globe">₺ TRY</i></a></li>
+        <li class="ms-3"><a href="#" class="nav-link px-2 text-body-black"><i class="uil uil-facebook"></i></a></li>
+        <li class="ms-3"><a href="#" class="nav-link px-2 text-body-black"><i class="uil uil-twitter"></i></a></li>
+        <li class="ms-3"><a href="#" class="nav-link px-2 text-body-black"><i class="uil uil-instagram"></i></a></li>
+      </ul>
+    </div>
+    
+  </footer>
+</div>
+</div>
+
+
+
+
+
+
+ 
+{% endblock content %}

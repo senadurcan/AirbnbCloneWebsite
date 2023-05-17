@@ -1,0 +1,185 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block menu %}
+{% include 'part/second.navbar.html' %}
+  {% include 'part/fixedbottombar.html' %}
+{% endblock menu %}
+
+
+{% block content %}
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Emin misiniz?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Airbnb'den gelen tüm pazarlama bildirimlerine aboneliğinizi iptal etmiş olacaksınız. Bu, önerileri, seyahat ilhamını ve fırsatları, yaşadığınız şehirde yapılacak şeyleri, Airbnb'nin nasıl çalıştığını, davet ve yönlendirmeleri, anket ve araştırma çalışmalarını, İş için Airbnb güncellemelerini, ev sahipliği ipuçları ile promosyonlarını ve deneyim ev sahipliği ipuçları ile promosyonlarını içerir.
+                </div>
+                <div class=" d-flex justify-content-around py-4">
+                    <a type="button" class="text-dark user__a" data-bs-dismiss="modal">Kapat</a>
+                    <button type="button" class="btn btn-dark text-end">Kaydet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="container p-3 mb-3 hesap__section">
+        <a href="/hesap/" class="nav-link"> Hesap <i class="fa-solid fa-angle-right fa-sm me-3 ms-2"></i>Bildirimler</a>
+        <h1 class="mt-2 hesap__h2">Bildirimler</h1>
+    </section>
+
+    <div class="arrow__left">
+        <a href="/hesap/" class="nav-link"><i class="fa-solid fa-angle-left fa-xl"></i></a>
+    </div>
+    
+    <div class="container p-3 hesap__container">
+        <div class="tab">
+            <button class="tablinks payment__button payment__active text-muted" onclick="openCity(event, 'London')"id="defaultOpen">Teklifler ve güncellemeler</button>
+            <button class="tablinks payment__button text-muted" onclick="openCity(event, 'Paris')">Hesap</button>
+            <hr class="hesap__line">
+        </div>
+    </div>
+
+    <div id="London" class="tabcontent hesap__goster">
+        <div class="container hesap__container">
+            <div class="row">
+                <div class="col-xl-8 col-sm-12">
+                    <div class="container">
+                        <h4>Seyahat ipuçları ve teklifleri</h4>
+                        <p class="text-muted">Kişiselleştirilmiş öneriler ve özel tekliflerle bir sonraki seyahatiniz için ilham bulun.</p>
+                    </div>
+                    <div class="container">
+                        <h6>İlham ve teklifler</h6>
+                        <p class="text-muted">Açık: E-posta</p>
+                        <a href="" class="text-dark user__a">Düzenle</a>
+                    </div>
+                    <div class="container mt-4">
+                        <h6>Seyahat planlama</h6>
+                        <p class="text-muted">Açık: E-posta</p>
+                        <a href="" class="text-dark user__a">Düzenle</a>
+                    </div>
+                    <hr class="w-100">
+                    <div class="container">
+                        <h4>Airbnb'den haberler</h4>
+                        <p class="text-muted">Airbnb'den en son haberleri alın ve daha iyisini nasıl yapabileceğimizi bize bildirin.</p>
+                    </div>
+                    <div class="container">
+                        <h6>Haberler ve programlar</h6>
+                        <p class="text-muted">Açık: E-posta</p>
+                        <a href="" class="text-dark user__a">Düzenle</a>
+                    </div>
+                    <div class="container mt-4">
+                        <h6>Geri bildirim</h6>
+                        <p class="text-muted">Açık: E-posta</p>
+                        <a href="" class="text-dark user__a">Düzenle</a>
+                    </div>
+                    <div class="container mt-4">
+                        <h6>Seyahat yönetmelikleri</h6>
+                        <p class="text-muted">Açık: E-posta</p>
+                        <a href="" class="text-dark user__a">Düzenle</a>
+                    </div>
+                    <hr class="w-100">
+                    <div class="container mt-4">
+                        <div class="form-check">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent;">
+                                <input class="form-check-input" type="checkbox"  id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Tüm pazarlama e-postalarının aboneliklerinden ayrılın
+                                </label>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 hesap__gosterme">
+                    <div class="card border rounded-2 mb-3 p-3" style="width: 22rem;">
+                        <div class="card-body">
+                        <h5 class="card-title mt-2">Kısa mesajları nereden almak istersiniz?</h5>
+                        <p class="card-title mb-3 text-muted">SMS kutusunu işaretleyerek Airbnb'den ve Airbnb ortaklarından aşağıdaki adrese otomatik olarak gönderilecek promosyon mesajları almayı kabul etmiş olursunuz:</p>
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                            <option selected>Telefon numarası seçin</option>
+                        </select>
+                          
+                        <p class="text-muted mt-5">Daha fazla bilgi için, kısa mesajla 247262 numaralı telefona HELP yazarak gönderin. Mobil bildirimleri iptal etmek için, 247262'ye STOP yazarak yanıt verin. Mesaj ve veri ücretleri uygulanabilir.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="Paris" class="tabcontent">
+        <div class="container hesap__container">
+             <div class="row">
+                 <div class="col-xl-8 col-sm-12">
+                    <div class="container">
+                        <h4>Hesap etkinliği ve politikalar</h4>
+                        <p class="text-muted">Rezervasyonunuzu ve hesap etkinliğinizi onaylayın ve önemli Airbnb politikaları hakkında bilgi edinin.</p>
+                    </div>
+                    <div class="container">
+                        <h6>Hesap etkinliği</h6>
+                        <p class="text-muted">Açık: E-posta</p>
+                        <a href="" class="text-dark user__a">Düzenle</a>
+                    </div>
+                    <div class="container mt-4">
+                        <h6>Misafir politikaları</h6>
+                        <p class="text-muted">Açık: E-posta</p>
+                        <a href="" class="text-dark user__a">Düzenle</a>
+                    </div>
+                    <hr class="w-100">
+                    <div class="container">
+                        <h4>Hatırlatmalar</h4>
+                        <p class="text-muted">Rezervasyonlarınız, kayıtlarınız ve hesap etkinliğinizle ilgili önemli hatırlatmalar alın.</p>
+                    </div>
+                    <div class="container">
+                        <h6>Hatırlatmalar</h6>
+                        <p class="text-muted">Açık: E-posta</p>
+                        <a href="" class="text-dark user__a">Düzenle</a>
+                    </div>
+                    <hr class="w-100">
+                    <div class="container">
+                        <h4>Misafir ve ev sahibi mesajları</h4>
+                        <p class="text-muted">Seyahatiniz öncesinde ve sırasında ev sahibinizle veya misafirlerinizle iletişimde kalın.</p>
+                    </div>
+                    <div class="container">
+                        <h6>Mesajlar</h6>
+                        <p class="text-muted">Açık: E-posta</p>
+                        <a href="" class="text-dark user__a">Düzenle</a>
+                    </div>
+                 </div>
+                 <div class="col-4 hesap__gosterme">
+                    <div class="card border rounded-2 mb-3 p-3" style="width: 22rem;">
+                        <div class="card-body">
+                        <h5 class="card-title mt-2">Kısa mesajları nereden almak istersiniz?</h5>
+                        <p class="card-title mb-3 text-muted">SMS kutusunu işaretleyerek Airbnb'den ve Airbnb ortaklarından aşağıdaki adrese otomatik olarak gönderilecek promosyon mesajları almayı kabul etmiş olursunuz:</p>
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                            <option selected>Telefon numarası seçin</option>
+                        </select>
+                          
+                        <p class="text-muted mt-5">Daha fazla bilgi için, kısa mesajla 247262 numaralı telefona HELP yazarak gönderin. Mobil bildirimleri iptal etmek için, 247262'ye STOP yazarak yanıt verin. Mesaj ve veri ücretleri uygulanabilir.</p>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+     </div>
+
+    <script>
+        function openCity(evt, cityName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace("payment__active", "");
+          }
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += "payment__active";
+        }document.getElementById("defaultOpen").click();
+    </script>
+{% endblock content %}

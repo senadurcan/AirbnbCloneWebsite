@@ -1,0 +1,143 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block menu %}
+  {% include 'part/second.navbar.html' %}
+  {% include 'part/fixedbottombar.html' %}
+{% endblock menu %}
+
+
+{% block content %}
+
+    <div class="container first" id="first">
+        <div class="row" style="height: 85vh;">
+        <div class="col-sm-6 my-auto">
+            <div class="container">
+                <h1 style="font-weight: 600;font-size: 60px;">Airbnb'de ev <br> sahipliğine <br> başlamak çok kolay</h1>
+            </div>
+        </div>
+        <div class="col-sm-6 my-auto">
+                <div class="d-flex p-3">
+                    <div>
+                        <h3>Bize yerinizi anlatın</h3>
+                        <p class="text-muted">Mekânın yeri ve konaklayabilecek misafir sayısı gibi bazı temel bilgileri paylaşın.</p>
+                    </div>    
+                    <img src="{% static 'image/yatak.jpg' %}" class="ms-2" width="100">
+                </div>
+                <hr class="mt-4 w-100">
+                <div class="d-flex p-3">
+                    <div>
+                        <h3>Ön plana çıkmasını sağlayın</h3>
+                        <p class="text-muted">En az 5 fotoğraf, bir başlık ve açıklama ekleyin. Ardından size yardımcı olacağız.</p>
+                    </div>    
+                    <img src="{% static 'image/masa.jpg' %}" class="ms-2" width="100">
+                </div>
+                <hr class="mt-4 w-100">
+
+                <div class="d-flex p-3">
+                    <div>
+                        <h3>Bitirin ve yayımlayın</h3>
+                        <p class="text-muted">Deneyimli bir misafirle başlamak isteyip istemediğinizi seçin, başlangıç fiyatı belirleyin ve kaydınızı yayımlayın.</p>
+                    </div>    
+                    <img src="{% static 'image/kapç.jpg' %}" class="ms-2" width="100">
+                </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="container second" id="second" style="height: 100%;">
+        <div class="row g-3 justify-content-center">
+            <div class="col-md-12 col-lg-8">
+                <form id="step-form" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate="">
+                    {% csrf_token %}
+                    <div class="form-step step-1 row g-3">
+                        <div class=" text-center">
+                            <img class="d-block mx-auto mb-4" src="{%  static 'image/airbnb.png' %}" alt="" width="150" >
+                            <h2>Yeriniz nerede bulunuyor?</h2>
+                            <p class="lead">Adresiniz misafirlerle yalnızca rezervasyon yaptıklarında paylaşılır.</p>
+                        </div>
+                        <h4>Adres</h4>
+                        <div class="col-sm-12">
+                            <label for="firstName" class="form-label">Ev İsmi</label>
+                            <input type="text" class="form-control" name="evName" required="">
+                
+                            <label for="kategori" class="form-label">Kategori</label>
+                            <select name="kategori" class="form-select"required="">
+                                {% for kategori in kategoriler %}
+                                <option value="{{kategori.id}}">{{kategori.isim}}</option>
+                                {% endfor %}
+                            </select>
+                    
+                            <label for="lastName" class="form-label">Uzaklık</label>
+                            <input type="number" name="uzaklık" class="form-control" placeholder="" value="" required="">
+                        
+                            <label for="fiyat" class="form-label">Fiyat</label>
+                            <input type="number" name="price" class="form-control" placeholder="" value="" required="">
+                    
+                            <label for="exampleFormControlTextarea1" class="form-label">Daha fazla bilgi verin</label>
+                            <textarea class="form-control" name="info" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    
+                            <label for="country" class="form-label">Konum</label>
+                            <select class="form-select" name="country" id="country" required="">
+                                <option>United States</option>
+                            </select>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button type="button" id="next-btn1" class="button mt-1">Devam Et</button>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-md-12 col-lg-8">
+                                <div class="form-step step-2">
+                                    <div class="py-3 text-center">
+                                        <img class="d-block mx-auto mb-4" src="airbnb.png" alt="" width="150" >
+                                        <h4>yurt çadırı kategorisindeki yerinizin bazı fotoğraflarını ekleyin</h4>
+                                        <p class="lead">Başlamak için 5 fotoğraf gerekiyor. Daha sonra başka fotoğraflar ekleyebilir veya bunları değiştirebilirsiniz.</p>
+                                    </div>
+                                    <h3>Adım 2</h3>
+
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label">Resim 1</label>
+                                        <input class="form-control" type="file" name="pic1" id="formFile">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label">Resim 2</label>
+                                        <input class="form-control" type="file" name="pic2" id="formFile">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label">Resim 3</label>
+                                        <input class="form-control" type="file" name="pic3" id="formFile">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label">Resim 4</label>
+                                        <input class="form-control" type="file" name="pic4" id="formFile">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label">Resim 5</label>
+                                        <input class="form-control" type="file" name="pic5" id="formFile">
+                                    </div>
+
+                                    <div class="d-flex justify-content-between">
+                                        <button type="button" id="prev-btn3" class="btn btn-secondary  mt-3">Geri Dön</button>
+                                        <button type="submit" name="paylas" class="button  mt-3">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid fixed-bottom d-flex">
+        <div class="container-fluid text-end">
+            <button type="button" id="btn" onclick="myFunction()" class="button mt-2 me-5">Başlayın</button>
+        </div>
+    </div>
+{% endblock content %}

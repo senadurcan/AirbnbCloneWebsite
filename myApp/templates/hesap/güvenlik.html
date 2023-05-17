@@ -1,0 +1,165 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block menu %}
+{% include 'part/second.navbar.html' %}
+  {% include 'part/fixedbottombar.html' %}
+{% endblock menu %}
+
+
+{% block content %}
+    <!------------------------------- KULLANICI BİLGİLERİNİ DEĞİŞTİRECEĞİ FORM ----------------------->
+        <!----------------------- Modal ---------------------------------->
+    <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Şifre değişikliği</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method='POST'>
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Mevcut parola</label>
+                        <input type="password" name="eski" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Yeni parola</label>
+                      <input type="password" name="yeni1" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Parolayı onaylayın</label>
+                        <input type="password" name="yeni2" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <button name="sifre" type="submit" class="btn btn-outline-secondary button__hesap">Güncelle</button>
+                </form>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-------------------------------------- MODAL BİTEN YERİ -------------------------------->
+
+    <section class="container p-3 mb-3 hesap__section">
+        <a href="/hesap/" class="nav-link"> Hesap <i class="fa-solid fa-angle-right fa-sm me-3 ms-2"></i>Giriş yapma ve güvenlik</a>
+        <h1 class="mt-2 hesap__h2">Giriş yapma ve güvenlik</h1>
+    </section>
+
+    <div class="arrow__left">
+        <a href="/hesap/" class="nav-link"><i class="fa-solid fa-angle-left fa-xl"></i></a>
+    </div>
+
+    <div class="container hesap__container mb-3">
+        <div class="tab py-2">
+            <button class="tablinks hesap__active hesap__button" onclick="openCity(event, 'London')"id="defaultOpen">GİRİŞ</button>
+            <button class="tablinks  hesap__button ms-3" onclick="openCity(event, 'Paris')">GİRİŞ İSTEKLERİ</button>
+            <hr class="hesap__line">
+        </div>
+    </div>
+
+    <div id="London" class="tabcontent hesap__goster" style="margin-left: -1%;">
+        <div class="container p-3 hesap__container">
+            <div class="row">
+                <div class="col-xl-8 col-sm-12">
+                    <div class="container">
+                        <h4 class="text-muted mb-3">Giriş yapma</h4>
+                        <br>
+                        <a href="" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="nav-link text-end hesap__color">Güncelleme</a>
+                        <h6>Parola</h6>
+                        <p class="text-muted">Son güncelleme tarihi 2 saat önce</p>
+                    </div>
+                    <hr class="py-2 hesap__hr">
+                    <div class="container">
+                        <h4 class="text-muted mb-3">Sosyal hesaplar</h4>
+                        <br>
+                        <a href="" class="nav-link text-end hesap__color">Bağlan</a>
+                        <h6>Facebook</h6>
+                        <p class="text-muted">Bağlı değil</p>
+                    </div>
+                    <hr class="py-2 hesap__hr">
+                    <div class="container">
+                        <a href="" class="nav-link text-end hesap__color">Bağlantıyı kaldır</a>
+                        <h6>Google</h6>
+                        <p class="text-muted">Bağlı</p>
+                    </div>
+                    <hr class="py-2 hesap__hr"></hr>
+                    <div class="container">
+                        <h4 class="text-muted mb-3">Cihaz geçmişi</h>
+                        <br>
+                        <br>
+                        <h6 class="text-muted"><a href="" class="nav-link text-end hesap__color">Cihazdan çıkış yap</a></h6>    
+                        <i class="fa-solid fa-laptop fa-lg"></i>
+                        <p class="hesap__p d-inline ms-3"><b>Windows 10.0 · Chrome </b> Chrome</p>
+                        <p class="hesap__p mt-3 ms-5">MEVCUT OTURUM</p>
+                        <p class="hesap__p ms-5">Istanbul, Istanbul · 17 Nisan 2023 tarihinde şu saatte: 09:16</p>
+                    </div>
+                    <hr class="py-2 hesap__hr">
+                </div>
+                <div class="col-4">
+                    <div class="card border rounded-2 mb-3 p-3" style="width: 22rem;">
+                        <div class="card-body">
+                        <i class="fa-solid fa-lock fa-2xl mb-4" style="color:#FF385C;"></i>
+                        <h5 class="card-title mt-2 mb-3">Şimdi hesabınızı daha güvenli bir hale getirelim</h5>
+                        <p class="card-title mb-3">Hesabınızın güvenliği: Düşük</p>
+                        <p class="text-muted">Her zaman topluluğumuzun güvenliğini artırmanın yolları üzerinde çalışıyoruz. Bu yüzden mümkün olduğunca güvenli olduğundan emin olmak için her hesaba bakıyoruz.</p>
+                        <hr class="w-25">
+                        <button type="button" class="hesap__security">Geliştir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container hesap__container hesap__delete">
+            <h4 class="text-muted mb-3">Hesap</h>  
+            <p class="hesap__p mt-4">Hesabınızı devre dışı bırakın</p>   
+            <a href="{% url 'delete' user.id %}" class="nav-link text-opacity-75 text-end text-danger">Devre dışı bırak</a>
+            <hr class="w-100">
+        </div>    
+    </div>
+    
+    <div id="Paris" class="tabcontent">
+        <div class="container p-3 hesap__container">
+            <div class="row">
+                <div class="col-xl-8 col-sm-12">
+                    <h4 class="mb-4">Oturum açma istekleri</h4>
+                    <p class="fw-lighter text-break">Ekip üyeleri bu hesaba ilk kez giriş yaptıklarında bir doğrulama kodu girmek zorunda kalabilirler. Oturum açma isteklerini bu sayfadan onaylayın/reddedin.</p> 
+                    <h6 class="mb-4">Bekleyen istekler</h6>
+                    <hr class="py-2 hesap__hr">
+                    <h6 class="mb-4">Onaylanan istekler</h6>
+                    <hr class="py-2 hesap__hr">
+                    <h6 class="mb-4">Satisfied requests</h6>
+                    <hr class="py-2 hesap__hr">
+                    <h6 class="mb-4">Reddedilen istekler</h6>
+                    <hr class="py-2 hesap__hr">
+                </div>
+                <div class="col-4">
+                    <div class="card border rounded-2 mb-3 p-3" style="width: 22rem;">
+                        <div class="card-body">
+                        <i class="fa-solid fa-lock fa-2xl mb-4" style="color:#FF385C;"></i>
+                        <h5 class="card-title mt-2 mb-3">Hesabınızı güvende tutun</h5>
+                        <p class="text-muted">Yalnızca tanıdığınız kişilerden gelen isteklere yanıt verin. Bilgisayar korsanları bir ekip üyesinin e-postasını taklit ederek hesabınıza erişmek isteyebilir.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script>
+        function openCity(evt, cityName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" hesap__active", "");
+          }
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += " hesap__active";
+        }
+        document.getElementById("defaultOpen").click();
+    </script>
+{% endblock content %}

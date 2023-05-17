@@ -1,0 +1,47 @@
+{% load static %}
+
+
+    <header class="p-3 m-2 main-header">
+        <div class="main-container">
+            <div class="d-flex align-items-center justify-content-between main-navbar">
+                <a href="/">
+                    <img src="{% static 'image/airbnb.png' %}" width="90px" alt="">
+                </a>
+                <div class="text-end navbar-right d-flex"> 
+                    <a href="/postForm/" class="mx-4 nav-link" type="button">Evinizi Airbnb'ye taşıyın</a>
+                    <div class="dropdown dropdwon-menu">
+                        <a class="btn bg-white btn-outline-dark dropdown rounded-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="uil uil-align-justify"></i>
+                            <img class="rounded-5" src="{{request.user.profil.profilresim.url}}" width="35px" alt="">
+                        </a>
+                        <ul class="dropdown-menu mt-2 main-dropdown-menu">
+                            {% if user.is_authenticated %}
+                                <li><a class="dropdown-item main-dropdown-menu-itemsust" href="#">Mesajlar</a></li>
+                                <li><a class="dropdown-item main-dropdown-menu-itemsust" href="#">Seyehatler</a></li>
+                                <li><a class="dropdown-item main-dropdown-menu-itemsust" href="{% url 'favori' %}">Favoriler</a></li>
+                                <hr>
+                                <li><a class="dropdown-item main-dropdown-menu-items" href="#">Kayıtları Yönetin</a></li>
+                                <li><a class="dropdown-item main-dropdown-menu-items" href="{% url 'hesap' %}">Hesap</a></li>
+                                <hr>
+                                <li><a class="dropdown-item main-dropdown-menu-items" href="#">Yardım</a></li>
+                                <li><a class="dropdown-item main-dropdown-menu-items" href="{% url 'logout' %}">Oturumu Kapatın</a></li>
+                            {% else %}
+                                <li><a class="dropdown-item main-dropdown-menu-itemsust register" href="{% url 'loginregister' %}">Kaydolun</a></li>
+                                <li><a class="dropdown-item main-dropdown-menu-itemsust login" href="{% url 'loginregister' %}">Oturum Açın</a></li>
+                                <hr>
+                                <li><a class="dropdown-item main-dropdown-menu-items" href="#">Yardım</a></li>
+                                <li><a class="dropdown-item main-dropdown-menu-items" href="{% url 'host' %}">Evinizi Airbnb'ye taşıyın</a></li>
+                            {% endif %}
+                                
+
+
+                                
+                            
+
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>               
+    </header>

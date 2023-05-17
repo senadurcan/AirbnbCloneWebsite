@@ -1,0 +1,88 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block menu %}
+{% include 'part/second.navbar.html' %}
+  {% include 'part/fixedbottombar.html' %}
+{% endblock menu %}
+
+
+{% block content %}
+    <section class="container p-3  hesap__section">
+        <a href="/hesap/" class="nav-link"> Hesap <i class="fa-solid fa-angle-right fa-sm me-3 ms-3"></i> Kişisel bilgiler</a>
+        <h1 class="mt-2 hesap__h2">Kişisel bilgiler</h1>
+    </section>
+
+    <div class="arrow__left">
+        <a href="/hesap/" class="nav-link"><i class="fa-solid fa-angle-left fa-xl"></i></a>
+    </div>
+
+    <div class="container p-3 hesap__width">
+        <div class="row">
+            <div class="col-8 col-sm hesap__left mt-3">
+                <p class="fw-medium">Yasal ad</p>
+                <p class="hesap__p">{{user.profil.isim}} {{user.profil.soyisim}}</p>
+                <hr class="hesap__hr">    
+                <p class="fw-medium">E-posta adresi</p>
+                <p class="hesap__p">{{request.user.email}}</p>
+                <hr class="hesap__hr">   
+                <p class="fw-medium">Telefon numarası</p>
+                <p class="hesap__p">{{user.profil.telefon}}</p>
+                <hr class="hesap__hr">  
+                <p class="fw-medium">Resmî kimlik</p>
+                <p class="hesap__p">Yok</p>
+                <hr class="hesap__hr">    
+                <p class="fw-medium">Adres</p>
+                <p class="hesap__p">Yok</p>
+                <hr class="hesap__hr"> 
+                <p class="fw-medium">Acil durumda iletişime geçilecek kişi</p>
+                <p class="hesap__p">Yok</p>
+                <hr class="hesap__hr"> 
+                <br>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-outline-secondary button__hesap w-50">Güncelle</button>
+            </div>
+            <!------------------------------- KULLANICI BİLGİLERİNİ DEĞİŞTİRECEĞİ FORM ----------------------->
+            <!-- Modal -->
+            <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="staticBackdropLabel">Kişisel Bilgilerinizi Güncelleyin</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <input type="submit" class="button mt-2" value="Güncelle">
+                        </form>
+                    </div>
+                    
+                  </div>
+                </div>
+            </div>
+            <!-------------------------------------- MODAL BİTEN YERİ -------------------------------->
+            <div class="col-4 hesap__right">
+                <div class="card border rounded-2 mb-3 p-3" style="width: 22rem;">
+                    <div class="card-body">
+                    <i class="fa-solid fa-lock fa-2xl mb-4" style="color:#FF385C;"></i>
+                    <h5 class="card-title">Bilgilerim neden burada gösterilmiyor?</h5>
+                    <p class="text-muted">Kimliğinizi korumak için bazı hesap bilgilerini gizliyoruz.</p>
+                    </div>
+                    <hr>
+                    <div class="card-body">
+                        <i class="fa-regular fa-pen-to-square fa-2xl mb-4" style="color:#FF385C;"></i>
+                        <h5 class="card-title">Hangi bilgiler düzenlenebilir?</h5>
+                        <p class="text-muted">Airbnb'nin kimliğinizi doğrulamak için kullandığı bilgiler değiştirilemez. İletişim bilgileri ve bazı kişisel bilgiler düzenlenebilir. Ancak bir sonraki rezervasyonunuz sırasında ya da bir kayıt oluştururken kimliğinizi doğrulamanızı isteyebiliriz.</p>
+                    </div>
+                    <hr>
+                    <div class="card-body">
+                        <i class="fa-regular fa-eye fa-2xl mb-4"style="color:#FF385C;"></i>
+                        <h5 class="card-title">Başkalarıyla hangi bilgiler paylaşılmaktadır?</h5>
+                        <p class="text-muted">Airbnb, ev sahipleri ve misafirlerin iletişim bilgilerini yalnızca bir rezervasyon onaylandıktan sonra açıklar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

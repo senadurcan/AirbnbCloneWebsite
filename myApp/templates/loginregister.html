@@ -1,0 +1,66 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block menu %}
+
+{% include "part/navbar.html" %}
+{% include "part/fixedbottombar.html" %}
+{% include "part/footer.html" %}
+
+{% endblock menu %} 
+
+{% block content %}
+
+<div class="d-flex justify-content-evenly align-items-center">
+    <div class="kayitol w-25">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form-floating mb-3">
+                    <input type="email" name="email" class="form-control" placeholder="Email">
+                    <label for="floatingPassword">Email</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="username" class="form-control" placeholder="Kullanıı Adı">
+                    <label for="floatingPassword">Kullanıcı Adı</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" name="sifre1" class="form-control" placeholder="Password">
+                    <label for="floatingPassword">Şifre</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" name="sifre2" class="form-control" placeholder="Password">
+                    <label for="floatingPassword">Şifre Tekrar</label>
+                </div>
+                <div class="modal-footer">
+                    <button style="margin: auto;" type="submit" name="üye" class="button button1 hostBtn hostBtn-hover color-11">Kayıt ol</button>
+                </div>
+            </form>
+        </div>
+
+
+        <div>
+            <p>OR</p>
+        </div>
+    
+    
+    <div class="giris w-25">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form-floating mb-3">
+                    <input type="text" name="username1" class="form-control" placeholder="Email">
+                    <label for="floatingPassword">Email</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" name="sifre3" class="form-control" placeholder="Password">
+                    <label for="floatingPassword">Şifre</label>
+                </div>
+                <div class="modal-footer">
+                    <button style="margin: auto;" type="submit" name="giris" class="button button1 hostBtn hostBtn-hover color-11">Giriş Yap</button>
+                </div>
+            </form>
+    </div>
+</div>
+
+
+
+{% endblock content %}

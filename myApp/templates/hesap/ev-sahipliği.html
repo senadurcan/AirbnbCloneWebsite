@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block menu %}
+{% include 'part/second.navbar.html' %}
+  {% include 'part/fixedbottombar.html' %}
+{% endblock menu %}
+
+
+{% block content %}
+    <section class="container p-3 mb-3 hesap__section">
+        <a href="/hesap/" class="nav-link"> Hesap <i class="fa-solid fa-angle-right fa-sm me-3 ms-2"></i>Profesyonel ev sahipliği araçları</a>
+        <h1 class="mt-2 hesap__h2">Profesyonel ev sahipliği araçları</h1>
+    </section>
+
+    <div class="container hesap__container">
+        <div class="row">
+            <div class="col-xl-7 col-sm-12">
+                <div class="d-flex justify-content-between">
+                    <h6>Şirket</h6>
+                    <a href="" class="text-dark">Yönet</a>
+                </div>
+                <p class="text-muted hesap__p">Şirket bilgilerinizi düzenleyin ve yüksek hacimli kayıtlarınızı yönetin</p>
+            </div>
+            <hr style="width: 73%;" class="ms-3">
+            <div>
+                <h6 class="text-muted">Misafirlere ulaşmak için e-posta takma adı kullanmama izin ver</h6>
+                <p class="text-muted hesap__p">E-posta takma adını yalnızca aşağıdaki gerekçelerle kullanacağımı <br> onaylıyorum:</p>
+            </div>
+            <div class="d-flex">
+                <ul>
+                    <li class="text-muted hesap__list">Yerel yasalarca gerekli belge eklerini göndermem gerektiğinde</li>
+                    <li class="text-muted hesap__list">Kira sözleşmelerini ek olarak göndermem gerektiğinde</li>
+                    <li class="text-muted hesap__list">Giriş rehberlerini ek olarak göndermem gerektiğinde</li>
+                    <li class="text-muted hesap__list">Airbnb mesajlaşma ile entegre olmayan bir Airbnb bağlantılı <br> yazılım kullandığımda</li>
+                </ul>
+                <div class="ms-4" style="margin-top: 3%;">
+                    <label class="hesap__switch">
+                        <input type="checkbox" checked>
+                        <span class="hesap__slider hesap__round"></span>
+                    </label>
+                </div>
+            </div>
+            <p class="text-muted hesap__p">E-posta takma adı kullanırken Airbnb’nin <a href="" class="text-dark">Platform Dışı Politikası</a> 'na tabi <br> olduğumu anlıyorum.</p>
+                <hr style="width: 75%;">
+        </div>
+    </div>
+{% endblock content %}

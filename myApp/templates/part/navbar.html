@@ -1,0 +1,83 @@
+{% load static %}
+<!------------------ Kayıt olma Modal ---------------->
+               
+    <!------------ Giriş Yapma Login Modal----------->
+            
+    <header class="p-3 m-2 main-header">
+        <div class="main-container">
+                <div class="d-flex align-items-center justify-content-between main-navbar">
+                        <a href="/">
+                            <img src="{% static 'image/airbnb.png' %}" width="90px" alt="">
+                        </a>
+                
+                        <div class="search-bar rounded-5 d-flex">
+                            <input type="search" placeholder="Herhangi bir yer seçin">
+                            <i class="uil uil-search rounded-5"></i>
+                            <div class="filtre-div search-filtre">
+                                <button type="button" class="btn filtre-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    <i class="fa-solid fa-filter"><s class="mx-2">Filtre</s></i>  
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="text-end navbar-right d-flex"> 
+                            <a href="{% url 'host' %}"><button style="background-color: #fff;" class="mx-4 my-2" type="button">Evinizi Airbnb'ye taşıyın</button></a>
+                            <div class="dropdown dropdwon-menu">
+                                <a class="btn bg-white dropdown rounded-5 dropdown-main-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="uil uil-align-justify"></i>
+                                    <img class="rounded-5" src="{{request.user.profil.profilresim.url}}" width="35px" alt="">
+                                </a>
+                            
+                                <ul class="dropdown-menu mt-2 main-dropdown-menu">
+                                    {% if user.is_authenticated %}
+                                        <li><a class="dropdown-item main-dropdown-menu-itemsust" href="#">Mesajlar</a></li>
+                                        <li><a class="dropdown-item main-dropdown-menu-itemsust" href="#">Seyehatler</a></li>
+                                        <li><a class="dropdown-item main-dropdown-menu-itemsust" href="{% url 'favori' %}">Favoriler</a></li>
+                                        <hr>
+                                        <li><a class="dropdown-item main-dropdown-menu-items" href="#">Kayıtları Yönetin</a></li>
+                                        <li><a class="dropdown-item main-dropdown-menu-items" href="{% url 'hesap' %}">Hesap</a></li>
+                                        <hr>
+                                        <li><a class="dropdown-item main-dropdown-menu-items" href="#">Yardım</a></li>
+                                        <li><a class="dropdown-item main-dropdown-menu-items" href="{% url 'logout' %}">Oturumu Kapatın</a></li>
+                                    {% else %}
+                                        <li><a class="dropdown-item main-dropdown-menu-itemsust register" href="{% url 'loginregister' %}">Kaydolun</a></li>
+                                        <li><a class="dropdown-item main-dropdown-menu-itemsust login" href="{% url 'loginregister' %}">Oturum Açın</a></li>
+                                        <hr>
+                                        <li><a class="dropdown-item main-dropdown-menu-items" href="#">Yardım</a></li>
+                                        <li><a class="dropdown-item main-dropdown-menu-items" href="{% url 'host' %}">Evinizi Airbnb'ye taşıyın</a></li>
+                                    {% endif %}
+                                        
+
+
+                                        
+                                    
+
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                </div>
+        </div>        
+        <hr class="w-100">
+        <div class="main-container">
+            <div class="d-flex w-100 c">
+                <div class="owl-carousel owl-theme sekmeler text-center">
+                    {% for kategori in kategoriler %}
+                            <div class="item">
+                                <h6><i class="{{ kategori.icon }}"></i></h6>
+                                <a href="{% url 'kategori' kategori.slug %}" style="font-size: 10px;">{{ kategori.isim }}</a>
+                                <hr>
+                            </div>
+                    {% endfor %}
+                        
+                </div>
+                <div class="filtre-div">
+                        <button type="button" class="btn filtre-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            <i class="fa-solid fa-filter"><s class="mx-2">Filtre</s></i>  
+                        </button>
+                </div>
+            </div>              
+        </div>
+    </header>
+
+

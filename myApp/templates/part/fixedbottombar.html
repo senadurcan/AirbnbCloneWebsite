@@ -1,0 +1,31 @@
+{% load static %}
+
+    <nav class="navbar fixed-bottom bg-body-tertiary">
+        <div class="main-container d-flex justify-content-evenly">
+            <div class="text-center">
+                <a href="/" class="bottom-navbar-link">
+                    <h6><i class="fa-solid fa-magnifying-glass"></i></h6>
+                    <s style="font-size: 10px;">Keşfet</s>
+                </a>
+                
+            </div>
+            <div class="text-center">
+                <a href="{% url 'favori' %}" class="bottom-navbar-link">
+                <h6><i class="fa-regular fa-heart"></i></h6>
+                <s style="font-size: 10px;">Favoriler</s>
+                </a>
+            </div>
+            <div class="text-center">
+                <a href="" class="bottom-navbar-link">
+                    <h6><i class="fa-brands fa-airbnb"></i></h6>
+                    <s style="font-size: 10px;">Seyahatler</s>
+                </a>      
+            </div>
+            <div class="text-center">
+                <a href="{% url 'profil' %}" class="bottom-navbar-link"><h6><i class="fa-regular fa-user"></i></h6>
+                <s style="font-size: 10px;">Profil</s></a>                
+            </div>
+    </div>
+    </nav>
+
+    

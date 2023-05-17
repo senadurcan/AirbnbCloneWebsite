@@ -1,0 +1,183 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+
+{% block menu %}
+{% include 'part/second.navbar.html' %}
+  {% include 'part/fixedbottombar.html' %}
+{% endblock menu %}
+
+
+{% block content %}
+
+    <!--------------------------- MODAL -------------------->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Kart bilgilerini ekleyin</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="floatingInput" placeholder="0000 0000 0000 0000">
+                        <label for="floatingInput">Krat numarası</label>
+                    </div>
+                    <div class="row g-3 mb-3">
+                        <div class="col">
+                            <input type="number" class="form-control" id="floatingInput" placeholder="Son kullanma tarihi">
+                        </div>
+                        <div class="col">
+                            <input type="number" class="form-control" id="floatingInput" placeholder="CVV">  
+                    </div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="floatingInput" placeholder="Posta kodu">
+                        <label for="floatingInput">Posta kodu</label>
+                    </div>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Ülke/Bölge</option>
+                        <option value="1">Türkiye</option>
+                        <option value="2">İtalya</option>
+                        <option value="3">Yunanistan</option>
+                        <option value="3">Amerika</option>
+                        <option value="3">Almanya</option>
+                        <option value="3">Yunanistan</option>
+                      </select>
+                </div>
+                <div class=" d-flex justify-content-around py-4">
+                    <a type="button" class="text-dark user__a" data-bs-dismiss="modal">Kapat</a>
+                    <button type="button" class="btn btn-dark text-end">Kaydet</button>
+                </div>
+            </div>
+            </div>
+    </div>
+    <!----------------------- MODAL BİTTİ ---------------------->
+
+    <section class="container p-3 mb-3 hesap__section">
+        <a href="/hesap/" class="nav-link"> Hesap <i class="fa-solid fa-angle-right fa-sm me-3 ms-2"></i>Yaptığınız ve aldığınız ödemeler</a>
+        <h2 class="mt-2">Yaptığınız ve aldığınız ödemeler</h2>
+    </section>
+
+    <div class="arrow__left">
+        <a href="/hesap/" class="nav-link"><i class="fa-solid fa-angle-left fa-xl"></i></a>
+    </div>
+
+    <div class="container p-3 hesap__container mb-3">
+        <div class="tab">
+            <button class="tablinks payment__button payment__active text-muted" onclick="openCity(event, 'London')"id="defaultOpen">Yaptığınız ödemeler</button>
+            <button class="tablinks payment__button text-muted" onclick="openCity(event, 'Paris')">Aldığınız ödemeler</button>
+            <hr class="hesap__line">
+        </div>
+    </div>
+
+    <div id="London" class="tabcontent hesap__goster">
+        <div class="container hesap__container">
+            <div class="row">
+                <div class="col-xl-8 col-sm-12">
+                    <div class="container mb-5">
+                        <h5><b>Ödemeleriniz</b></h5>
+                        <p class="mb-4">Tüm ödemelerinizi ve para iadelerinizi takip edin.</p>
+                        <button type="button" class="btn btn-dark p-2">Ödemeleri yönetin</button>
+                    </div>
+                    <br>
+                    <div class="container mb-4">
+                        <h5><b>Ödeme yapma yöntemleri</b></h5>
+                        <p class="text-muted mb-4">Güvenli ödeme sistemimizi kullanarak bir ödeme yöntemi ekleyin ve bir sonraki seyahatinizi planlamaya başlayın.</p>
+                        <button type="button" class="btn btn-dark p-2"data-bs-toggle="modal" data-bs-target="#exampleModal">Ödeme yöntemi ekleyin</button>
+                    </div>
+                    <br>
+                    <div class="container mt-5">
+                        <h5><b>Airbnb hediye kredisi</b></h5>
+                        <p class="text-muted mb-4">Hediye kartı kullanın ve kredi bakiyenizi kontrol edin.<a href="" class="text-dark user__a">Belli şartlara tabidir</a></p>
+                        <hr class="w-100">
+                        <div class="d-flex justify-content-between">
+                            <p>Mevcut bakiye</p> <small class="text-end">$0,00</small>
+                        </div>
+                        <hr class="w-100">
+                        <button type="button" class="btn btn-dark p-2">Hediye kartı ekleyin</button>
+                    </div>
+                    <div class="container" style="margin-top: 80px;">
+                        <h5><b>Kuponlar</b></h5>
+                        <p class="text-muted mb-4">Bir kupon ekleyin ve bir sonraki seyahatinizden tasarruf edin.</p>
+                        <hr class="w-100">
+                        <div class="d-flex justify-content-between">
+                            <p>Kuponlarınız</p> 
+                            <small class="text-end">0</small>
+                        </div>
+                        <hr class="w-100">
+                        <button type="button" class="btn btn-dark p-2">Kupon ekleyin</button>
+                    </div>
+                    
+                </div>
+                <div class="col-4 hesap__top">
+                    <div class="card border rounded-2 mb-3 p-3" style="width: 22rem;">
+                        <div class="card-body">
+                        <i class="fa-solid fa-lock fa-2xl mb-4" style="color:#FF385C;"></i>
+                        <h5 class="card-title mt-2 mb-3">Şimdi hesabınızı daha güvenli bir hale getirelim</h5>
+                        <p class="card-title mb-3">Hesabınızın güvenliği: Düşük</p>
+                        <p class="text-muted">Her zaman topluluğumuzun güvenliğini artırmanın yolları üzerinde çalışıyoruz. Bu yüzden mümkün olduğunca güvenli olduğundan emin olmak için her hesaba bakıyoruz.</p>
+                        <hr class="w-25">
+                        <button type="button" class="hesap__security">Geliştir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="Paris" class="tabcontent">
+        <div class="container hesap__container">
+            <div class="row">
+                <div class="col-xl-8 xol-sm-12">
+                    <div class="container">
+                        <h5><b>Ödemeniz nasıl yapılacak?</b></h5>
+                        <p class="text-muted">Paranızı nereye göndereceğimizi bilmemiz için en az bir ödeme alma yöntemi ekleyin.</p> 
+                        <button type="button" class="btn btn-dark p-2">Alacağınız ödemeleri ayarlayın</button>
+                    </div>
+                </div>
+                <div class="col-4 hesap__top">
+                    <div class="card border rounded-2 mb-3 p-3" style="width: 25rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Yardıma mı ihtiyacınız var?</h5>
+                            <div style="height: 13px;"></div>
+                            <div class="d-flex ">
+                                <a href="" class="card-title text-dark user__a">Ödemenizi ne zaman alacaksınız?</a>
+                                <i class="fa-solid fa-chevron-right mt-1 ms-3"></i>
+                            </div>
+                            <div style="height: 13px;"></div>
+                            <div class="d-flex">
+                                <a href="" class="card-title text-dark user__a">Ödemelerin işleyişi</a>
+                                <i class="fa-solid fa-chevron-right mt-1 ms-3"></i>
+                            </div>
+                            <div style="height: 13px;"></div>
+                            <div class="d-flex">
+                                <a href="" class="card-title text-dark user__a">İşlem geçmişinize gidin</a>
+                                <i class="fa-solid fa-chevron-right mt-1 ms-3"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openCity(evt, cityName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace("payment__active", "");
+          }
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += "payment__active";
+        }document.getElementById("defaultOpen").click();
+    </script>
+
+{% endblock content %}

@@ -1,0 +1,81 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block menu %}
+{% include 'part/second.navbar.html' %}
+    {% include 'part/fixedbottombar.html' %}
+{% endblock menu %}
+
+
+{% block content %}
+
+    <div class="container">
+        <div class="container mt-3">
+            <h2>Misafir yönlendirmeleri</h2>
+        </div>
+        <div class="row">
+            <div class="col-xl-5 col-lg-6 col-md-6 col-sm-12 m-auto">
+                <div class="container hesap__info w-100" style="height: 29vh;">
+                  <h6 class="mt-2 ms-2 mb-2">Yönlendirdiğiniz kişileri takip edin</h6>
+                  <div class="d-flex justify-content-between">
+                    <p class="ms-2 mt-2 mb-2">Tamamlanan yönlendirmeler</p>
+                    <small class="mt-2">0</small>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <p class="ms-2 mt-2 mb-2">Kaydolanların sayısı</p>
+                    <small class="mt-2">0</small>
+                  </div>
+                  <div class="text-center">
+                    <button class="btn btn-light p-2 w-100 mt-3"style="border:1px solid #000000;">Daha fazla ayrıntı göster</button>
+                  </div>
+                </div>
+                
+            </div>
+        </div>
+        <hr class="w-100 mt-5">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 col-sm-12">
+                <div class="container mt-5">
+                    <h4>Sık sorulan sorular</h4>
+                    <p class="text-muted"><a href="" class="text-dark">Yardım Merkezi</a> 'ne giderek sık sorulan sorulara verilen yanıtlara göz atın <br> ve diğer program bilgilerini inceleyin.</p>
+                </div>
+            </div>
+            <div class="col-xl-6 col-sm-12">
+                <div class="container mt-5">
+                    <div class="accordion-body">
+                        <div class="hesap__accordion">  
+                          <div class="accordion__container">
+                            <div class="hesap__label">Yönlendirme programı hâlâ devam ediyor mu?</div>
+                            <div class="hesap__content mt-3">
+                                <p class="text-muted hesap__p">Yönlendirme programı artık devam etmediğinden yeni davet gönderilemiyor.</p>
+                                <p class="text-muted hesap__p">Programın kapatılmasından önce size bir kupon gönderildiyse bu kuponu, son kullanma tarihinden önce yapılan herhangi bir rezervasyonda kullanabilirsiniz.</p>
+                                <p class="text-muted hesap__p">Yönlendiren kredileri süresi dolana kadar geçerli olacaktır. Önceki yönlendirmeler için, kuponun sona ermesinden önce kullanılması durumunda başarılı bir konaklama tamamlandıktan sonra kredi alırsınız (kredi tutarı o sıradaki teklife dayalıdır).</p>
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="accordion__container">
+                            <div class="hesap__label">Bir arkadaşımı yönlendirdim ancak seyahat kredisi almadım.</div>
+                            <div class="hesap__content">
+                                <p class="text-muted hesap__p">Airbnb, 1 Ekim 2020'den sonra yapılan yönlendirmelerde seyahat kredisi sunmamaktadır.</p>
+                            </div>
+                          </div>
+                          <hr>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const accordion = document.getElementsByClassName('accordion__container');
+
+        for (i=0; i<accordion.length; i++) {
+        accordion[i].addEventListener('click', function () {
+            this.classList.toggle('active')
+        })
+        }
+    </script>
+{% endblock content %}

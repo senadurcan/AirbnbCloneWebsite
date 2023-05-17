@@ -1,0 +1,107 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block menu %}
+{% include 'part/second.navbar.html' %}
+  {% include 'part/fixedbottombar.html' %}
+{% endblock menu %}
+
+
+{% block content %}
+
+    <section class="container p-3 mb-3 hesap__section">
+        <a href="/hesap/" class="nav-link"> Hesap <i class="fa-solid fa-angle-right fa-sm me-3 ms-2"></i>Vergiler</a>
+        <h2 class="mt-2">Vergiler</h2>
+    </section>
+
+    <div class="arrow__left">
+        <a href="/hesap/" class="nav-link"><i class="fa-solid fa-angle-left fa-xl"></i></a>
+    </div>
+
+    <div class="container p-3 hesap__container mb-3">
+        <div class="tab">
+            <button class="tablinks payment__button payment__active text-muted" onclick="openCity(event, 'London')"id="defaultOpen">Vergi mükellefleri</button>
+            <button class="tablinks payment__button text-muted" onclick="openCity(event, 'Paris')">Vergi belgeleri</button>
+            <hr class="hesap__line">
+        </div>
+    </div>
+
+    <div id="London" class="tabcontent">
+       <div class="container hesap__container">
+            <div class="row">
+                <div class="col-xl-8 col-sm-12">
+                   <div class="container">
+                        <h4>Vergi mükellefi bilgileri</h4>
+                        <p>Vergi mükellefinin ikamet ettiği, ev sahipliği veya yardımcı ev sahipliği yaptığı ya da hem ikamet edip hem de ev sahipliği veya yardımcı ev sahipliği yaptığı çoğu ülke için vergi bilgisi eklemeniz gerekir. <a href=""class="text-dark user__a">Daha fazla bilgi edinin</a></p> 
+                        <button type="button" class="btn btn-dark p-2 mt-3">Vergi bilgilerini ekleyin</button>
+                   </div>
+                   <div class="container mt-5">
+                        <h4>Katma değer vergisi (KDV)</h4>
+                        <p>KDV tesciliniz varsa veya konaklamanız iş amaçlıysa Airbnb hizmet bedelleri için sizden KDV alınmayabilir. KDV, ABD'deki ev sahipleri için geçerli değildir. <a href=""class="text-dark user__a">Ülkeye veya bölgeye göre KDV gereklilikleri</a> hakkında bilgi edinin.</p> 
+                        <button type="button" class="btn btn-dark p-2 mt-3">Vergi kimlik numarası ekleyin</button>
+                    </div>
+                    <div class="container mt-5">
+                        <h4>Yardıma mı ihtiyacınız var?</h4>
+                        <p>Vergilerle ilgili sorularınızın yanıtlarını<a href=""class="text-dark user__a">Yardım Merkezimizde</a> bulabilirsiniz.</p> 
+                    </div>
+                </div>
+            </div>
+       </div>
+    </div>
+
+    <div id="Paris" class="tabcontent">
+       <div class="container hesap__container">
+            <div class="row">
+                <div class="col-xl-9 col-sm-12">
+                   <div class="container">
+                        <p>Vergi beyannamesi için gerekli olan vergi belgeleri buradan incelenebilir ve indirilebilir.</p>
+                        <p>Ayrıca, <a href="" class="text-dark user__a">kazanç özetinde</a> bulunan ayrıntılı kazanç bilgilerini kullanarak da vergi beyannamelerinizi gönderebilirsiniz.</p>
+                    </div>
+                    <hr class="w-100 mt-5">
+                    <div class="container mt-5">
+                        <h4>2022</h4>
+                        <p class="text-muted">Vergi belgesi düzenlenmedi</p>
+                    </div>
+                    <hr class="w-100 mt-5">
+                    <div class="container mt-5">
+                        <h4>2021</h4>
+                        <p class="text-muted">Vergi belgesi düzenlenmedi</p>
+                    </div>
+                    <hr class="w-100 mt-5">
+                    <div class="container mt-5">
+                        <h4>2020</h4>
+                        <p class="text-muted">Vergi belgesi düzenlenmedi</p>
+                    </div>
+                    <hr class="w-100 mt-5">
+                    <div class="container mt-5">
+                        <h4>2019</h4>
+                        <p class="text-muted">Vergi belgesi düzenlenmedi</p>
+                    </div>
+                    <hr class="w-100 mt-5">
+                    <p class="mt-5">2019 öncesinde düzenlenmiş vergi belgeleri için <a href="" class="text-dark user__a">bizimle iletişime geçin.</a></p>
+                    <div class="container mt-5" style="margin-left: -12px;">
+                        <h4>Yardıma mı ihtiyacınız var?</h4>
+                        <p class="text-muted">Vergilerle ilgili sorularınızın yanıtlarını <a href="" class="text-dark user__a">Yardım Merkezimizde</a> bulabilirsiniz.</p>
+                    </div>
+                </div>
+            </div>
+       </div>
+    </div>
+      
+    <script>
+        function openCity(evt, cityName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace("payment__active", "");
+          }
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += "payment__active";
+        }document.getElementById("defaultOpen").click();
+    </script>
+      
+{% endblock content %}

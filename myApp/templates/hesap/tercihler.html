@@ -1,0 +1,75 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block menu %}
+    {% include 'part/second.navbar.html' %}
+    {% include 'part/fixedbottombar.html' %}
+{% endblock menu %}
+
+
+{% block content %}
+
+    <section class="container p-3 mb-3 hesap__section">
+        <a href="/hesap/" class="nav-link"> Hesap <i class="fa-solid fa-angle-right fa-sm me-3 ms-2"></i>Genel tercihler</a>
+        <h2 class="mt-2">Genel tercihler</h2>
+    </section>
+
+    <div class="arrow__left">
+        <a href="/hesap/" class="nav-link"><i class="fa-solid fa-angle-left fa-xl"></i></a>
+    </div>
+
+    <div class="container p-3 hesap__container mt-3">
+       <div class="row">
+        <div class="col-xl-7 col-sm-12">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <p>Tercih edilen dil</p>
+                    <p class="text-muted">Türkçe</p>
+                </div>
+                <a href="" class="nav-link hesap__color">Düzenle</a>
+            </div>
+            <hr>
+
+            <div class="hesap__hidden">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <p>Çeviri</p>
+                        <p class="text-muted">Diğer dillerin otomatik olarak çevrileceği dil:Türkçe</p>
+                    </div>
+                    <label class="hesap__switch me-3">
+                        <input type="checkbox" checked>
+                        <span class="hesap__slider hesap__round"></span>
+                    </label>
+                </div>
+                <hr>
+            </div>
+          
+            <div class="d-flex justify-content-between">
+                <div>
+                    <p>Tercih edilen para birimi</p>
+                    <p class="text-muted">Türk lirası</p>
+                </div>
+                <a href="" class="nav-link hesap__color">Düzenle</a>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between">
+                <div>
+                    <p>Saat dilimi</p>
+                </div>
+                <a href="" class="nav-link hesap__color">Düzenle</a>
+            </div>
+            <hr>
+        </div>
+        <div class="col-4 ms-5 hesap__gosterme">
+            <div class="card border rounded-2 mb-3 p-3" style="width: 22rem;">
+                <div class="card-body">
+                    <i class="fa-solid fa-grip-lines-vertical fa-2xl mb-4 ms-1" style="color: #008489;"></i>
+                    <h5 class="card-title mt-2 mb-3">Genel tercihleriniz</h5>
+                    <p class="text-muted">Para biriminizi değiştirdiğinizde fiyatların gösterilme biçimi de değişir. Ödemelerinizi alma şeklinizi, ödemeler ve ödeme tercihleriniz kısmından değiştirebilirsiniz.</p>
+                </div>
+            </div>
+        </div>
+       </div>
+    </div>
+    
+{% endblock content %}

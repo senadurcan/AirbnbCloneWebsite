@@ -1,0 +1,151 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<header class="main-header d-sm-none d-lg-block">
+    <div class="mt-3 align-self-center ">
+        <div class="main-container" style="bottom: 150px;">
+            <div class="d-flex align-items-center justify-content-between main-navbar">
+                    <a href="/">
+                        <img src="{% static 'image/airbnb.png' %}" width="90px" alt="">
+                    </a>
+            
+                    <div class="search-bar rounded-5 d-flex w-25 ">
+                        <input type="search"  placeholder="Aramanıza Başlayın">
+                        <i class="uil uil-search rounded-5"></i>
+                        <div class="filtre-div search-filtre">
+                            <button type="button" class="btn filtre-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <i class="fa-solid fa-filter"><s class="mx-2">Filtre</s></i>  
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="text-end navbar-right d-flex"> 
+                        <a href="{% url 'host' %}"><button style="background-color: #fff;" class="mx-4 mt-2" type="button">Evinizi Airbnb'ye taşıyın <i class="fa-solid fa-globe fa-sm ms-2" style="color: #535b6a;"></i></button></a>
+                        <div class="dropdown dropdwon-menu">
+                            <a class="btn bg-white dropdown rounded-5 dropdown-main-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="uil uil-align-justify"></i>
+                                <img src="{% static 'image/airbnb.png' %}" width="35px" alt="">
+                            </a>
+                        
+                            <ul class="dropdown-menu mt-2 main-dropdown-menu">
+                                <li><a class="dropdown-item main-dropdown-menu-itemsust"  data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#">Kaydolun</a></li>
+                                <li><a class="dropdown-item main-dropdown-menu-itemsust"  data-bs-toggle="modal" data-bs-target="#exampleModal" href="#">Oturum Açın</a></li>
+                                <li><a class="dropdown-item main-dropdown-menu-itemsust" href="#">Mesajlar</a></li>
+                                <li><a class="dropdown-item main-dropdown-menu-itemsust" href="#">Seyehatler</a></li>
+                                <li><a class="dropdown-item main-dropdown-menu-itemsust" href="#">Favoriler</a></li>
+                                <hr>
+                                <li><a class="dropdown-item main-dropdown-menu-items" href="#">Kayıtları Yönetin</a></li>
+                                <li><a class="dropdown-item main-dropdown-menu-items" href="{% url 'hesap' %}">Hesap</a></li>
+                                <hr>
+                                <li><a class="dropdown-item main-dropdown-menu-items" href="#">Yardım</a></li>
+                                <li><a class="dropdown-item main-dropdown-menu-items" href="#">Oturumu Kapatın</a></li>
+                            </ul>
+                        </div>
+                    </div>
+            </div>
+        </div>        
+    </div>
+    <hr class="navczg w-100">
+</header>
+<div class="container-fluid p-4 contact">
+   
+    <div class="geriikon-contact w-100 h-50 mt-2 col-sm-12">
+        <a href="/">
+            <i class="fa-solid fa-angle-left fa-2xl mb-3 text-dark "></i>
+        </a>
+    </div>
+    <div class="row">
+        <div class="col-md-7 col-sm-12 soll me-4 justify-content-space-between">
+            <img class="solimg" src="{% static 'image/doga.jpg' %}" alt="asd">
+            <h1 class="fs-5">Baris ile iletişime geçin</h1>
+            <p class="silikyazı mb-4">Genellikle bir saat içinde cevap verir</p>
+            <hr class="text-secondary" style="width: 100%;">
+            <h1 class="fs-5 mt-4">Çoğu seyahatsever bunu soruyor:</h1>
+            <p class="fw-medium mt-4">Yol tarifi</p>
+            <div class="">
+                <ul class="">
+                    <li class="fw-light"><i class="fa-solid fa-circle-small fa-2xs" style="color: #000000;"></i>Bu evin giriş saati şu saatte başlar: 15.00 ve çıkış saati: 11.00.</li>
+                </ul>
+            </div>
+            <p class="fw-medium mt-4">Ev kuralları ve diğer bilgiler</p>
+            <div class="">
+                <ul>
+                    <li class="fw-light"><i class="fa-solid fa-circle-small fa-2xs" style="color: #000000;"></i>Parti veya etkinlik düzenlenemez. Evcil hayvan kabul edilmez.</li>
+                </ul>
+            </div>
+            <div>
+            <p class="fw-medium mt-4">Fiyat ve uygunluk</p>
+                <ul>
+                    <li class="fw-light"><i class="fa-solid fa-circle-small fa-2xs" style="color: #000000;"></i>Bir haftadan daha uzun konaklamalarda 6% haftalık indirim veya bir aydan daha uzun konaklamalarda 20% aylık indirim kazanın.</li>
+                    <li class="fw-light"><i class="fa-solid fa-circle-small fa-2xs" style="color: #000000;"></i>Baris adlı ev sahibinin evi 1 – 6 May arasında uygun durumda. Kısa süre içinde rezervasyon yapın.</li>
+                    <li class="fw-light"><i class="fa-solid fa-circle-small fa-2xs" style="color: #000000;"></i>Sınırlı süre içinde tam para iadesi.</li>
+
+                </ul>
+                
+            
+            <div class="d-sm-block d-flex mb-5">
+                <p>Bu ev 17-22 Haz tarihleri arasında uygun.<a class="text-dark fw-medium" href="{% url 'onayodeme' %}">Rezervasyon yap</a>
+                </p>
+            </div>
+            <div><hr> </div>
+            </div>
+
+
+
+            <div class="d-sm-none">
+                <hr class="text-secondary mt-4">
+                <h1 class="fs-5 mt-4">Başka sorularınız mı var? Ev sahibine mesaj gönderin</h1>
+                <textarea class="textarea mt-3 w-100" rows="6" cols="90"></textarea>            
+                <button class="mesajj mt-3 mb-3 d-sm-none">Mesaj Gönder</button>
+            </div>
+        </div>
+        <div class="col-4   sagcontact ">
+            <div class="sagg ">
+                <div class="sagilk p-3">
+                    <img class="sagimg" src="{% static 'image/doga.jpg' %}" alt="asd">
+                    <b class="fs-5 d-flex pe-1 fw-medium ">4.000 ₺<s class="fw-light fs-6 mt-1 ms-1">gece</s> </b>
+                        <div class="ilanaciklamaa me-5">
+                            <i class="fa-solid fa-xs fa-language me-2"></i>
+                            <p class="ilandetayyy fw-light">Mykonos Divino 1 bd Deniz Manzaralı Villa - özel havuz</p>
+                        </div>
+                        <div class="puanlamaa mt-2"> 
+                            <i class="fa-solid fa-star fa-xs me-2"></i>
+                            <p class="ilandetayy">4,91 · 376 değerlendirme. <br> Tüm kiralık konut</p>
+                        </div>
+                        <div class="host-buttons d-flex mt-4" style="overflow: hidden;">
+                            <a href="{% url 'onayodeme' %}" class="button button1 hostBtn hostBtn-hover color-11 text-white nav-link ms-1 w-100" style=" display: flex; justify-content: center; align-items: center; "> 
+                              <span style="font-size: 16px;" class="fw-medium">Rezerve edin</span> 
+                            </a>
+                        </div>
+                        <small class="thslt d-block mt-3 text-center">Henüz sizden tahsilat yapılmayacak</small>
+                        <div class="d-flex justify-content-between mt-3">
+                            <a href="" class="text-dark">11.371 ₺ x 5 gece</a>
+                            <p>56.855 ₺</p>
+                        </div>
+                        <hr style="border-width: px;">
+                        <div class="d-flex justify-content-between mt-3">
+                            <p class=" fw-medium">Vergiler hariç toplam</p>
+                            <p class="fw-medium">56.855 ₺</p>
+                        </div>
+
+                            
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="">
+      
+        <div class="footerrescontact d-flex">
+            <p class="mt-4 fw-light">Hala sorunuz mu var?</p>
+            <b style="background-color: #000000; " class="contactbutton text-light fw-medium p-2">Ev sahibine mesaj gönderin</b>
+        </div>
+
+   
+    </div>
+    
+    
+</div>
+
+{% endblock content %}

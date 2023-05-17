@@ -1,0 +1,171 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block menu %}
+
+{% include "part/navbar.html" %}
+{% include "part/fixedbottombar.html" %}
+{% include "part/footer.html" %}
+
+{% endblock menu %} 
+
+{% block content %}
+<div class="modal filtre-modal b" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Filtreler</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form method="GET" action="{% url 'filter' %}">
+            <div class="fiyat-aralıgı">
+                <h5>Fiyat Aralığı</h5>
+            </div>       
+            <div class="price-input mt-5">
+                <div class="field">
+                    <span style="font-size: 12px;">Minnimum Fiyat</span>
+                    <input type="number" name="min_price" class="input-min" value="2500">
+                </div>
+                <div class="separator">-</div>
+                <div class="field">
+                    <span style="font-size: 12px;">Maximum Fiyat</span>
+                    <input type="number" name="max_price" class="input-max" value="7500">
+                </div>
+            </div>
+            <div class="main-slider mt-5">
+                <div class="progress">
+                </div>
+            </div>
+            <div class="range-input mb-5">
+                <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
+                <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
+            </div>
+            <hr>
+            <div class="fiyat-aralıgı mt-4 w-100 mb-5">
+                <h5>Kategoriler</h5>
+                        <div class="select-box">
+                            <select name="kategori" class="rounded-3"  id="">
+                                {% for kategori in kategoriler %}
+                                    <option value="">{{kategori.isim}}</option>
+                                {% endfor %}
+                            </select>
+                            <i class="fa fa-chevron-down" aria-hidden=""></i>
+                        </div>
+            </div>
+            <hr>
+            <div class="fiyat-aralıgı mt-4 w-100 mb-5">
+                <h5>Loksayon</h5>        
+                        <div class="select-box">
+                            <select name="location" class="rounded-3" id="country">
+                                
+                            </select>
+                            <i class="fa fa-chevron-down" aria-hidden=""></i>
+                        </div>
+                        
+            
+            </div>
+            <div class="modal-footer">
+                <button type="submit" value="{{filtre}}" name="filtre" class="btn btn-secondary">Konaklanacak yerleri göster</button>
+              </div>
+            </form>
+        </div>
+        
+        </div>
+    </div>
+</div>
+<div class="main-container">
+    <div style="margin-bottom: 70px;" class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4">
+        {% for post in posts %}
+            <div class="col">
+                <div class="card mt-5 post-card m-auto" style="width: 18rem; border: none;">
+                    <a class="nav-link" href="{% url 'detay' post.slug %}">
+                            <div id="{{post.id}}" class="carousel slide">
+                                <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#{{post.id}}" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#{{post.id}}" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#{{post.id}}" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                <button type="button" data-bs-target="#{{post.id}}" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                <button type="button" data-bs-target="#{{post.id}}" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                </div>
+                                <div class="carousel-inner carousel-items rounded-3">
+                                        <div class="carousel-item active">
+                                            <img src="{{post.resim1}}" height="170px" class="d-block w-100" alt="...">    
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="{{post.resim2}}" height="170px" class="d-block w-100" alt="...">    
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="{{post.resim3}}" height="170px" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="{{post.resim4}}" height="170px" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="{{post.resim5}}" height="170px" class="d-block w-100" alt="...">
+                                        </div>
+                                        
+                                </div>
+                            {% if user.is_authenticated %}
+                            <form method="POST" action="">
+                                {% csrf_token %}
+                                <input type="hidden" name="postId" value="{{post.id}}">
+                                <button name="begen" type="submit"
+                                {% if request.user in post.like.all  %}
+                                class='likebuttonkirmizi'
+                                {% else %}
+                                class="likebutton" 
+                                {% endif %}   
+                                >
+                                <i class="fa-solid fa-heart"></i>
+                                </button>
+                            </form>
+                            {% else %}
+                            <a class="likebutton" href="{% url 'loginregister' %}"><i  class="fa-solid fa-heart"></i></a>
+                            {% endif %}
+                                
+                                        
+                                <button  class="carousel-control-prev" type="button" data-bs-target="#{{post.id}}" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon crsl" aria-hidden="true"></span>
+                                    <span class="visually-hidden"></span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#{{post.id}}" data-bs-slide="next">
+                                    <span  class="carousel-control-next-icon crsl" aria-hidden="true"></span>
+                                    <span class="visually-hidden"></span>
+                                </button>
+                            </div>
+                            <div class="post-content">
+                                <div class="row">
+                                    <div class="col-9 card-left">
+                                        <h6 class="mt-2">
+                                            {{post.location}}
+                                            <p style="font-size: 12px; color: grey !important; margin-top: 2px;" class="text-muted ">
+                                                {{post.uzaklik}} Km <br> 26 Nis-1 May
+                                            </p>
+                                        </h6>
+                                        <p style="font-weight: 600;" class="card-text">
+                                            {{post.fiyat}} ₺ <s style="font-weight: 300;" class="text-muted">gece</s>
+                                        </p>
+                                    </div>  
+                                    <div  class="col-3 card-right mt-2 text-end">
+                                        <i class="fa-solid fa-star"></i> <s>{{post.yildiz}}</s>
+                                    </div>
+                                </div>
+                            </div>
+                    </a>
+                </div>
+            </div>        
+        {% endfor %}
+        
+    </div>
+        
+</div>
+
+
+
+{% endblock content %}
+
+
+
+
+

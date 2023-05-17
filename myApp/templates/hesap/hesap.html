@@ -1,0 +1,128 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block menu %}
+{% include 'part/second.navbar.html' %}
+  {% include 'part/fixedbottombar.html' %}
+{% endblock menu %}
+
+{% block content %}
+<section class="container hesap__section">
+    <h2 class="ms-3 mt-5 hesap__h2">Hesap</h2>
+    <p class="ms-3 mt-2"><b class="hesap__b">{{user.profil.isim}}</b>,{{request.user.email}}. <b><a href="/profil/" class="text-dark user__a">Profilinizi gidin.</a></b> </p>
+</section>
+
+<div class="container hesap__width">
+    <div class="row">
+
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+          <div class="container hesap__info">
+            <i class="fa-regular fa-address-card fa-2xl mt-4 pm-2"></i>
+            <a href="/kisisel/" class="nav-link">
+              <p class="mt-4 hesap__title">Kişisel bilgiler</p>
+              <p class="text-muted hesap__p">Kişisel bilgilerinizi ve size nasıl ulaşabiliceğimizi belirtin</p>
+            </a>
+          </div>
+      </div>
+
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+          <div class="container hesap__info">
+            <i class="fa-solid fa-shield-halved fa-2xl mt-4"></i>
+            <a href="/guvenlik/" class="nav-link">
+              <p class="mt-4 hesap__title">Giriş yapma ve güvenlik</p>
+              <p class="text-muted hesap__p">Parolanızı güncelleyin ve hesabınızı güven altına alın</p>
+            </a>
+          </div>
+      </div>
+
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+          <div class="container hesap__info">
+            <i class="fa-brands fa-cc-mastercard fa-2xl mt-4"></i>
+            <a href="/odeme/" class="nav-link">
+              <p class="mt-4 hesap__title">Yaptığınız ve aldığınız ödemeler</p>
+              <p class="text-muted hesap__p">Yaptığınız ve aldığınız ödemeleri, kuponları,hediye kartlarını inceleyin</p>
+            </a>
+          </div>
+      </div>
+
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+          <div class="container hesap__info">
+            <i class="fa-regular fa-file fa-2xl mt-4"></i>
+            <a href="/vergiler/" class="nav-link">
+              <p class="mt-4 hesap__title">Vergiler</p>
+              <p class="text-muted hesap__p">Vergi mükellefi bilgilerini ve vergi belgelerini yönetin</p>
+            </a>
+          </div>
+      </div>
+
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+          <div class="container hesap__info">
+            <i class="fa-solid fa-bullhorn fa-2xl mt-4"></i>
+            <a href="/bildirim/" class="nav-link">
+              <p class="mt-4 hesap__title">Bildirimler</p>
+              <p class="text-muted hesap__p">Bildirim tercihlerini ve sizinle nasıl iletişime geçilmesini istediğinizi seçin</p>
+            </a>
+          </div>
+      </div>
+
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+          <div class="container hesap__info">
+            <i class="fa-regular fa-eye fa-2xl mt-4"></i>
+            <a href="/gizlilik/" class="nav-link">
+              <p class="mt-4 hesap__title">Gizlilik ve paylaşımlar</p>
+              <p class="text-muted hesap__p">Kişisel verilerinizi, bağlı hizmetlerinizi ve veri paylaşımı ayarlarınızı yönetin</p>
+            </a>
+          </div>
+      </div>
+
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+          <div class="container hesap__info">
+            <i class="fa-solid fa-toggle-off fa-xl"></i><br>
+            <i class="fa-solid fa-toggle-off fa-xl"></i>
+            <a href="/tercihler/" class="nav-link">
+              <p class="mt-4 hesap__title">Genel tercihler</p>
+              <p class="text-muted hesap__p">Varsayılan dil, para birimi ve saat dilimi</p>
+            </a>
+          </div>
+      </div>
+
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+          <div class="container hesap__info">
+            <i class="fa-solid fa-earth-europe fa-2xl mt-4"></i>
+            <a href="/seyehat/" class="nav-link">
+              <p class="mt-4 hesap__title">İş için seyahat</p>
+              <p class="text-muted hesap__p">İş seyahati avantajları için bir iş e-postası ekleyin</p>
+            </a>
+          </div>
+      </div>
+
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+          <div class="container hesap__info">
+            <i class="fa-solid fa-signal fa-2xl mt-4"></i>
+            <a href="/sahiplik/" class="nav-link">
+              <p class="mt-4 hesap__title">Profesyonel ev sahipliği araçları</p>
+              <p class="text-muted hesap__p">Airbnb'de birden fazla mekân yönetiyorsanız profesyonel araçlar edinin</p>
+            </a>
+          </div>
+      </div>
+
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+          <div class="container hesap__info">
+            <i class="fa-solid fa-gift fa-2xl mt-4"></i>
+            <a href="/misafir/" class="nav-link">
+              <p class="mt-4 hesap__title">Yönlendirilen kişi kredisi ve kuponu</p>
+              <p class="text-muted hesap__p">yönlendirilen kişi krediniz ve kuponunuz Daha fazla bilgi edinin.</p>
+            </a>
+          </div>
+      </div>
+      
+    </div>
+</div>
+
+<div class="container text-center mt-5">
+    <p>Hesabınızı devre dışı bırakmanız mı gerekiyor?</p>
+    <a href="" class="text-dark" style="font-weight: 700;font-size: 12px;">Bununla şimdi ilgilenin.</a>
+</div>
+<div class="heaight" style="height: 100px;"></div>
+
+{% endblock content %}

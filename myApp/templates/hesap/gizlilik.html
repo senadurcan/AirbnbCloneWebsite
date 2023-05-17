@@ -1,0 +1,118 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block menu %}
+{% include 'part/second.navbar.html' %}
+    {% include 'part/fixedbottombar.html' %}
+{% endblock menu %}
+
+
+{% block content %}
+
+    <section class="container p-3 mb-3 hesap__section">
+        <a href="/hesap/" class="nav-link"> Hesap <i class="fa-solid fa-angle-right fa-sm me-3 ms-2"></i>Gizlilik ve paylaşma</a>
+        <h1 class="mt-2 hesap__h2">Gizlilik ve paylaşma</h1>
+    </section>
+
+    <div class="arrow__left">
+        <a href="/hesap/" class="nav-link"><i class="fa-solid fa-angle-left fa-xl"></i></a>
+    </div>
+
+    <div class="container p-3 hesap__container">
+        <div class="tab">
+            <button class="tablinks payment__button payment__active text-muted" onclick="openCity(event, 'London')"id="defaultOpen">Veriler</button>
+            <button class="tablinks payment__button text-muted" onclick="openCity(event, 'Paris')">Paylaşım</button>
+            <button class="tablinks payment__button text-muted" onclick="openCity(event, 'Tokyo')">Hizmetler</button>
+            <hr style="width: 65%;">
+        </div>
+    </div>
+
+    <div class="container hesap__width">
+        <div class="row">
+            <div class="col-xl-6 col-sm-12">
+                <div id="London" class="tabcontent">
+                   <div class="container">
+                        <h4>Hesap verilerinizi yönetin</h4>
+                        <p class="text-muted hesap__p">Kişisel verilerinizin Airbnb'den indirilmesi veya silinmesi için istek gönderebilirsiniz.</p>
+                   </div>
+                   <div class=" container d-flex  mt-5">
+                        <a href="" class="nav-link">Kişisel verilerinizi isteyin</a>
+                        <i class="fa-solid fa-angle-right mt-1 ms-1"></i>
+                   </div>
+                   <div class="container">
+                        <p class="text-muted hesap__p">Kişisel verilerinizin Airbnb'den indirilmesi veya silinmesi için istek gönderebilirsiniz.</p>
+                   </div>
+                   <div class=" container d-flex  mt-5">
+                    <a href="" class="nav-link">Hesabınızı silin</a>
+                    <i class="fa-solid fa-angle-right mt-1 ms-1"></i>
+                    </div>
+                    <div class="container">
+                        <p class="text-muted hesap__p">Bu işlemle, hesabınız ve verileriniz yürürlükteki yasalar uyarınca kalıcı olarak silinecektir.</p>
+                    </div>
+                </div>
+
+                <div id="Paris" class="tabcontent">
+                    <div class="container">
+                        <h4>Etkinlik paylaşımı</h4>
+                        <p class="text-muted hesap__p">Profilinizin ve etkinliğinizin kullanıcılara nasıl gösterileceğine karar verin.</p> 
+                    </div>
+                    <div class="container mt-5">
+                        <h6>Profilimi ve kaydımı arama motorlarına dâhil et</h6>
+                        <p class="text-muted hesap__p">Bu özelliği açarsanız Google gibi arama motorları profilinizi ve kayıt sayfalarınızı arama sonuçlarında gösterecektir.</p> 
+                        <label class="hesap__switch">
+                            <input type="checkbox" checked>
+                            <span class="hesap__slider hesap__round"></span>
+                        </label>
+                        <hr class="w-100">
+                    </div>
+                    <div class="container">
+                        <h4>Veri paylaşımı</h4>
+                        <p class="text-muted hesap__p">Verilerinizin Airbnb araştırmaları için nasıl kullanılacağına karar verin.</p> 
+                    </div>
+                    <div class="container mt-5">
+                        <p>Ayrımcılıkla mücadeleye yardımcı olması için adımı ve profil fotoğrafımı kullan</p>
+                        <p class="text-muted hesap__p">Bu seçeneği etkin bırakmanız, Airbnb'de ayrımcılığı saptamaya ve önlemeye yardımcı olacak çalışmaları daha ileriye taşımamıza katkı sağladığınız anlamına gelir. Daha fazla bilgi edinin</p> 
+                        <label class="hesap__switch">
+                            <input type="checkbox" checked>
+                            <span class="hesap__slider hesap__round"></span>
+                        </label>
+                        <hr class="w-100">
+                    </div>
+                </div>
+                <div id="Tokyo" class="tabcontent">
+                    <h4>Bağlantılı hizmetler</h4>
+                    <p class="text-muted hesap__p">Airbnb hesabınıza bağladığınız hizmetleri görüntüleyin</p>
+                    <p class="text-muted hesap__p mt-5">Şu anda bağlı hizmet yok</p>
+                </div>
+            </div>
+            <div class="col-6 hesap__gosterme">
+                <div class="card border rounded-2 mb-3 p-3" style="width: 23rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Gizlilik taahhüdü</h5>
+                        <div style="height: 13px;"></div>
+                        <p class="text-muted hesap__p">
+                            Airbnb, verilerinizi korumayı taahhüt eder. Gizlilik Politikamızı okuyarak ayrıntılı bilgi edinebilirsiniz.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openCity(evt, cityName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace("payment__active", "");
+          }
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += "payment__active";
+        }document.getElementById("defaultOpen").click();
+    </script>
+{% endblock content %}

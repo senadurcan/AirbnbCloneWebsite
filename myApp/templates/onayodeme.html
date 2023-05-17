@@ -1,0 +1,419 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<nav class="onayödemenav">
+    <a href="/"><img class="navlogo p-4" src="{% static 'image/airbnb.png' %}" alt="dsf"></a> 
+</nav>
+<div class="container">
+    <div class=" d-flex mt-5 ">
+        <a href="{% url 'contactHost' %}" class="geriikon text-dark">
+            <i class="fa-solid fa-angle-left fa-xl mt-3 "></i>
+        </a>
+        <h3 class="onaybaslik ms-4 fw-medium  ">Onay ve Ödeme</h3>
+    </div>
+    <div class="row onay-mainrow">
+        <div class="col-6 me-4 soll">
+            <div class="seyahat"> 
+                <div class="row">
+                    <h4 class="mt-4">Seyahatiniz</h4>
+                    <div class="d-flex justify-content-between mt-4">
+                        <h6 class="">Tarihler</h6>
+                        <a href="" class="duzenlee text-dark d-flex fw-bold">Düzenle</a>
+                    </div>
+                    <p class="text-muted">23-28 Nis</p>
+                </div>
+                <div class="row">
+                    <div class="d-flex justify-content-between">
+                        <h6 class="">Misafir</h6>
+                        <a href="" class="duzenlee text-dark d-flex fw-bold">Düzenle</a>
+                    </div>
+                    <p class="text-muted">1 Misafir</p>
+                </div>
+            </div>
+            <div class="odmscnk">
+                <h4 class="mb-3">Nasıl ödeme yapacağınızı seçin</h4>
+                <div class="odemeekran">
+                    <div class="tamamıode">
+                        <div class="odeme d-flex justify-content-between">
+                            <h6>Tamamını ödeyin</h6>  
+                            <div class="d-flex">  
+                                <p class="d-block me-3"><b> 19.320,75 ₺</b></p>
+                                <input type="radio" class="mb-3" name="" id="">
+                            </div>
+                        </div>
+                        <s class="text-muted">Şimdi toplam ücreti (19.320,75 ₺) öderseniz işlem tamamlanmış olacak.</s>
+                    </div>
+                    <div class="birazode">
+                        <div class="odeme d-flex justify-content-between">
+                            <h6 class="">Bir kısmını şimdi, kalan kısmını daha sonra ödeyin</h6>  
+                            <div class="d-flex">  
+                                <p class="d-block me-3"><b> 9.660,38 ₺</b></p>
+                                <input type="radio" class="mb-3" name="" id="">
+                            </div>
+                        </div>
+                        <s class="text-muted">Şimdi 9.660,38 ₺ ödeyin. Kalan kısmı (9.660,37 ₺) 5 May 2023 tarihinde aynı ödeme yönteminden otomatik olarak tahsil edilecektir. Ek ücret alınmayacaktır.</s>
+                        <a href="" class="text-dark d-block"><b> Daha fazla bilgi</b></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4">
+            <div class="d-flex justify-content-between mt-4">
+                <h4>Şununla Ödeyin:</h4>
+                <div class="mr-3">
+                    <i class="fa-brands fa-cc-amex " style="color: #8da1c3;"></i>
+                    <i class="fa-brands fa-cc-visa" style="color: #30476e;"></i>
+                    <i class="fa-brands fa-cc-mastercard " style="color: #e94e4e;"></i>
+                    <i class="fa-brands fa-google-pay" style="color: #608cd2;"></i> 
+                </div>
+            </div>
+
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <i class="fa-regular fa-credit-card fa-xl me-3"></i><s class="text-muted ">Kredi veya Banka Kartı</s>
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <i class="fa-regular fa-credit-card fa-xl me-3"></i><s class="text-muted ">Kredi veya Banka Kartı</s>
+                        <i class="kartonay fa-solid fa-check fa-xl"></i>
+                        <br>
+                        <div class="mt-3">
+                            <i class="fa-brands fa-google-pay me-4" style="color: #608cd2;"></i><s class="text-muted ">Google Pay</s>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="form-floating mt-3 mb-3">
+                <input type="cardno" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput"><s class="text-muted"> Kart numarası </s> <i class="fa-solid fa-lock fa-xs" style="color: #969eab;"></i> </label>
+            </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput "><s class="text-muted"> Son Kullanma Tarihi</s></label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput"> <s class="text-muted">CVV</s></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput"><s class="text-muted">Posta Kodu</s></label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput"><s class="text-muted">Ülke Bölge</s></label>
+                </div>
+                <a href="" class="text-dark d-block fw-medium">Bir kupon girin</a>
+                
+                <h4 class="text-dark">Seyahatiniz için gerekli</h4>
+                <p class="evshbmsj text-dark fw-bold mt-3">Ev sahibine mesaj gönderin</p>
+                <s class="syhtndn text-dark mb-5">Seyahat nedeninizi ve ne zaman giriş yapacağınızı ev sahibine bildirin.</s>
+                <div class="container bg-light rounded-3">
+                    <div class="d-flex">
+                        <img class="rounded-5 me-3 mt-3" src="{% static 'image/doga2.jpg' %}" width="50" height="50">
+                        <p class="sahpbilgi mt-3 text-dark"><b class="fs-6"> Markos</b><br><s class="text-dark"> Mikonos Divino Villalarına Hoş Geldiniz...</s></p> 
+                        
+                    </div>
+                    <div class="mesajbilgi">
+                        <p class="sahpbilgi text-dark">Tatiliniz için bizi seçtiğiniz için teşekkür ederiz!</p>
+                        <p class="sahpbilgi text-dark">Her türlü bilgi için lütfen bizimle iletişime geçmekten çekinmeyin.</p>
+                        <p class="sahpbilgi text-dark fw-light"><i class="fa-solid fa-language fa-sm me-2" style="color: #545c69;"></i>Türkçe dilinden çevrildi. <a class="text-dark me-2" href="">Orijinal dilde göster</a></p>
+                    </div>
+                </div>
+                    <textarea class="textareamsj mt-3" rows="5" ></textarea>
+                
+                <h4 class="text-dark mt-4">İptal Politikası</h4>
+                <p class="iptaltxt text-dark mt-4"><b class="text-dark"> 48 saat içinde ücretsiz iptal.</b> Kısmi para iadesi için 10 Haz tarihinden önce iptal edin. <a class="text-dark" href=""><b> Daha fazla bilgi edinin</b></p></a>
+                    
+                    <h5 class="text-dark mt-4">Temel Kurallar</h5>
+                    <p class="text-dark fw-normal">Her misafirden, harika bir misafirin nasıl olması gerektiği hakkında birkaç basit şeyi dikkate almasını isteriz.</p>
+                    <ul class="iptaltxt text-dark fw-normal">
+                        <li>Ev kurallarına uyun.</li>
+                        <li>Ev sahibinizin evine kendi evinizmiş gibi saygı gösterin</li>
+                    </ul>
+                    
+                    <s class="sozlesme text-dark text-light mt-5">Aşağıdaki düğmeye tıklayarak  <a class="text-dark fw-medium" href="">ev sahibinin ev kuralları, Misafirlere yönelik temel kurallar, Airbnb'nin Yeniden
+                     Rezervasyon ve Para İadesi Politikası </a>şartlarını ve hasardan sorumlu olmam durumunda Airbnb'nin <a class="text-dark fw-medium" href=""> ödeme yöntemimden tahsil edebileceğini </a>kabul ediyorum.
+                    </s>
+                    <p class="sozlesme text-dark mt-3"><a class="fw-medium" href=""> Güncellenen Hizmet Şartları</a> ile <a class="fw-medium" href=""> Ödeme Hizmet Şartları</a>'nı kabul ediyorum ve <a class="fw-medium" href=""> Gizlilik Politikası</a>'nı onaylıyorum.</p>
+                    <button class="onayöde mt-3"><b class="text-light">Onayla ve öde</b></button>
+        </div>
+        <div class="col-5 ms-5 mt-4">
+            <div class="sagpanel">
+                <div class="sag-pnl p-3">
+                    <div class="sagg_icerik d-flex">
+                        <img class="rounded-3 me-3 " src="{% static 'image/doga2.jpg' %}" width="130" height="120">
+                        <div class="">
+                            <small class="tkk text-secondary fw-normal">Tüm kiralık konut</small><br>
+                            <small class="evacklm fw-light mt-2 d-block "><i class="fa-solid fa-language fa-sm  me-1" style="color: #545c69;"></i>Mykonos Divino 1 bd Deniz Manzaralı Villa - özel havuz</small><br>
+                            <s class="dgr text-muted mt-2"><i class="fa-solid fa-star fa-xs me-1"></i><b class="text-dark">4,99</b>(178 değerlendirme)  <i class="fa-solid fa-medal fa-xs"></i> Süper Ev Sahibi</s>
+                        </div>
+                    </div>
+                    <hr class="mt-4">
+                    <p>Rezervasyonunuz <s class="text-danger fw-bold">air</s><b>cover</b>  ile korunmaktadır</p>
+                    <hr class="mt-4">
+                    <div class="fytayrnt">
+                        <h5 class="mt-4">Fiyat ayrıntıları</h5>
+                        <div class="d-flex justify-content-between">
+                            <p class="fw-normal mt-4 text-dark">11.268,17 ₺ x 5 gece</p>
+                            <p class="fw-normal mt-4 text-dark">56.340,85 ₺</p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <a class="fw-normal mt-4 text-dark">Vergiler</a>
+                            <p class="fw-normal mt-4">53,15 ₺</p>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between">
+                            <p class="fw-bold mt-4">Toplam (<a class="text-dark" href="">TRY)</a></p>
+                            <p class="fw-bold mt-4">56.394,00 ₺</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footeronay mt-4 justify-content-center">
+    <div class="d-flex align-items-center text-center justify-content-center mt-3 ">
+        <i class="fa-solid fa-globe me-2"></i>
+        <a href="" style="text-decoration: none;" class="fw-medium text-dark text-none me-2">Türkçe (TR)</a>
+        <a href="" style="text-decoration: none;" class="fw-medium text-dark text-none me-5">₺ TRY</a>
+        <div class="footerssyl"> 
+            <i class="fa-brands fa-square-facebook fa-lg me-2" style="color: #000000;"></i>
+            <i class="fa-brands fa-square-twitter fa-lg me-2" style="color: #000000;"></i>
+            <i class="fa-brands fa-square-instagram fa-lg me-2" style="color: #000000;"></i>
+        </div>
+    </div>
+    <div class="text-center">
+        <p class="footer-2023 mt-4">© 2023 Airbnb, Inc.</p> 
+    </div>
+    <div class="d-flex justify-content-center">
+        <a href="" style="text-decoration: none;" class="text-dark me-2">Gizlilik</a>
+        <a href="" style="text-decoration: none;" class="text-dark ">- Şartlar -</a>
+        <a href="" style="text-decoration: none;" class="text-dark ms-2">Site haritası</a>
+    </div>
+</div>
+
+<!-- Responsive -->
+  
+<div class="onaynav-res">
+        <a href="{% url 'contactHost' %}" class="navgeri text-dark mt-3 ms-4">
+            <i class="fa-solid fa-angle-left fa-lg "></i>
+        </a>
+        <div class="onay-res">
+            <h3 class="onay-resh3 fw-bold text-dark ">Onay ve Ödeme</h3>
+        </div>
+</div>
+<div class="sagg_icerikres p-3">
+    <div class="d-flex">
+        <img class="rounded-3 me-3 " src="{% static 'image/doga2.jpg' %}" width="120" height="110">
+        <div class="">
+            <small class="tkk text-secondary fw-normal">Tüm kiralık konut</small><br>
+            <small class="evacklm fw-light mt-2 d-block "><i class="fa-solid fa-language fa-sm  me-1" style="color: #545c69;"></i>Mykonos Divino 1 bd Deniz Manzaralı Villa - özel havuz</small><br>
+            <s class="dgr text-muted mt-2"><i class="fa-solid fa-star fa-xs me-1"></i><b class="text-dark">4,99</b>(178 değerlendirme)  <i class="fa-solid fa-medal fa-xs"></i> Süper Ev Sahibi</s>
+        </div>
+    </div>
+    <hr class="mt-4">
+    <p class="">Rezervasyonunuz  <s class="text-danger fw-bold">air</s><b>cover</b>  ile korunmaktadır</p>
+</div>
+<hr class="onay-hr-res onayödeme_hid">
+
+<div class="seyahatres ms-3 me-3"> 
+    <div class="row">
+        <h4 class="mt-4">Seyahatiniz</h4>
+        <div class="d-flex justify-content-between mt-4">
+            <h6 class="">Tarihler</h6>
+            <a href="" class="duzenlee text-dark d-flex fw-bold">Düzenle</a>
+        </div>
+        <p class="text-muted">23-28 Nis</p>
+    </div>
+    <div class="row">
+        <div class="d-flex justify-content-between">
+            <h6 class="">Misafir</h6>
+            <a href="" class="duzenlee text-dark d-flex fw-bold">Düzenle</a>
+        </div>
+        <p class="text-muted">1 Misafir</p>
+    </div>
+</div>
+<hr class="onay-hr-res onayödeme_hid">
+<div class="odmscnkres ms-3 me-3">
+    <h4 class="mb-3">Nasıl ödeme yapacağınızı seçin</h4>
+    <div class="odemeekran">
+        <div class="tamamıode">
+            <div class="odeme d-flex justify-content-between">
+                <h6>Tamamını ödeyin</h6>  
+                <div class="d-flex">  
+                    <p class="d-block me-3"><b> 19.320,75 ₺</b></p>
+                    <input type="radio" class="mb-3" name="" id="">
+                </div>
+            </div>
+            <s class="text-muted">Şimdi toplam ücreti (19.320,75 ₺) öderseniz işlem tamamlanmış olacak.</s>
+        </div>
+        <div class="birazode">
+            <div class="odeme d-flex justify-content-between">
+                <h6 class="">Bir kısmını şimdi, kalan kısmını daha sonra ödeyin</h6>  
+                <div class="d-flex">  
+                    <p class="d-block me-3"><b> 9.660,38 ₺</b></p>
+                    <input type="radio" class="mb-3" name="" id="">
+                </div>
+            </div>
+            <s class="text-muted">Şimdi 9.660,38 ₺ ödeyin. Kalan kısmı (9.660,37 ₺) 5 May 2023 tarihinde aynı ödeme yönteminden otomatik olarak tahsil edilecektir. Ek ücret alınmayacaktır.</s>
+            <a href="" class="text-dark d-block"><b> Daha fazla bilgi</b></a>
+        </div>
+    </div>
+</div>
+<hr class="onay-hr-res onayödeme_hid">
+<div class="fytayrntres p-3">
+    <h5 class="mt-4">Fiyat ayrıntıları</h5>
+    <div class="d-flex justify-content-between">
+        <p class="fw-normal mt-4 text-dark">11.268,17 ₺ x 5 gece</p>
+        <p class="fw-normal mt-4 text-dark">56.340,85 ₺</p>
+    </div>
+    <div class="d-flex justify-content-between">
+        <p class="fw-normal  text-dark">Vergiler</p>
+        <p class="fw-normal ">53,15 ₺</p>
+    </div>
+    
+    <div class="d-flex justify-content-between">
+        <p class="fw-medium ">Toplam (<a class="text-dark" href="">TRY)</a></p>
+        <p class="fw-medium ">56.394,00 ₺</p>
+    </div>
+    <a href="" style="float:right" class="text-dark d-block"><s class="fw-medium"> Daha fazla bilgi</s></a>
+</div>
+<div class="snnloderes ">
+    <hr class="onay-hr-res mb-5">
+    <div class="ms-4">
+        <h4>Şununla Ödeyin:</h4>
+        <div class="d-flex mt-4 align-items-center">
+            <i class="fa-regular fa-credit-card fa-xl" style="color: #a0aabb;"></i>
+            <button type="button" class="buttoncardres ms-4"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Kredi veya banka kartı
+          </button>
+          
+          <!-- Modal -->
+          <div class="modal fade " id="exampleModal"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog ">
+                <div class="modal-content w-100 ">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Kart bilgilerini ekleyin</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <i class="fa-brands fa-cc-amex fa-lg me-2" style="color: #8da1c3;"></i>
+                    <i class="fa-brands fa-cc-visa fa-lg" style="color: #30476e;"></i>
+                    <i class="fa-brands fa-cc-mastercard fa-lg ms-2" style="color: #e94e4e;"></i>
+                    <div class="form-floating mt-3 mb-3">
+                        <input type="cardno" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput"><s class="text-muted"> Kart numarası </s> <i class="fa-solid fa-lock fa-xs" style="color: #969eab;"></i> </label>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                <label for="floatingInput "><s class="text-muted"> Son Kullanma Tarihi</s></label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                <label for="floatingInput"> <s class="text-muted">CVV</s></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput"><s class="text-muted">Posta Kodu</s></label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput"><s class="text-muted">Ülke Bölge</s></label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-dark w-100" data-bs-dismiss="modal">Bitti</button>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<div class="d-flex align-items-center mt-3 mb-3">
+    <i class="fa-brands fa-google-pay fa-xl me-3" style="color: #608cd2;"></i><s class="">Google Pay</s>
+</div>
+<hr class="mt-2 mb-3">
+<a href="" class="text-dark d-block fw-bold mt-2">Bir kupon girin</a>
+</div>
+</div>
+<hr class="onay-hr-res onayödeme_hid">
+<div class="syhtres ms-4">
+    <h4 class="text-dark">Seyahatiniz için gerekli</h4>
+    <p class="evshbmsj text-dark fw-bold mt-3">Ev sahibine mesaj gönderin</p>
+    <s class="syhtndn text-dark mb-5">Seyahat nedeninizi ve ne zaman giriş yapacağınızı ev sahibine bildirin.</s>
+    <div class="container bg-light rounded-3">
+        <div class="d-flex">
+            <img class="rounded-5 me-3 mt-3" src="{% static 'image/doga2.jpg' %}" width="50" height="50">
+            <p class="sahpbilgi mt-3 text-dark"><b class="fs-6"> Markos</b><br><s class="text-dark"> Mikonos Divino Villalarına Hoş Geldiniz...</s></p> 
+        </div>
+        <div class="mesajbilgi">
+            <p class="sahpbilgi text-dark">Tatiliniz için bizi seçtiğiniz için teşekkür ederiz!</p>
+            <p class="sahpbilgi text-dark">Her türlü bilgi için lütfen bizimle iletişime geçmekten çekinmeyin.</p>
+            <p class="sahpbilgi text-dark fw-light"><i class="fa-solid fa-language fa-sm me-2" style="color: #545c69;"></i>Türkçe dilinden çevrildi. <a class="text-dark me-2" href="">Orijinal dilde göster</a></p>
+        </div>
+    </div>
+    <textarea class="textareamsj mt-3" rows="5" ></textarea>
+</div>
+<hr class="onay-hr-res onayödeme_hid">
+<div class="iptalres ms-3">
+    <h4 class="text-dark mt-4">İptal Politikası</h4>
+    <p class="iptaltxt text-dark mt-4"><b class="text-dark"> 48 saat içinde ücretsiz iptal.</b> Kısmi para iadesi için 10 Haz tarihinden önce iptal edin. <a class="text-dark" href=""><b> Daha fazla bilgi edinin</b></p></a>
+</div>
+<hr class="onay-hr-res onayödeme_hid">
+<div class="temelres ms-3">
+    <h5 class="text-dark mt-4">Temel Kurallar</h5>
+    <p class="text-dark fw-normal">Her misafirden, harika bir misafirin nasıl olması gerektiği hakkında birkaç basit şeyi dikkate almasını isteriz.</p>
+    <ul class="iptaltxt text-dark fw-normal">
+        <li>Ev kurallarına uyun.</li>
+        <li>Ev sahibinizin evine kendi evinizmiş gibi saygı gösterin</li>
+    </ul>
+</div>
+<hr class="onay-hr-res onayödeme_hid">
+<div class="gizlilikres ms-3">
+    <s class="sozlesme text-dark text-light mt-5">Aşağıdaki düğmeye tıklayarak  <a class="text-dark fw-medium" href="">ev sahibinin ev kuralları, Misafirlere yönelik temel kurallar, Airbnb'nin Yeniden
+        Rezervasyon ve Para İadesi Politikası </a>şartlarını ve hasardan sorumlu olmam durumunda Airbnb'nin <a class="text-dark fw-medium" href=""> ödeme yöntemimden tahsil edebileceğini </a>kabul ediyorum.
+    </s>
+    <p class="sozlesme text-dark mt-3"><a class="fw-medium" href=""> Güncellenen Hizmet Şartları</a> ile <a class="fw-medium" href=""> Ödeme Hizmet Şartları</a>'nı kabul ediyorum ve <a class="fw-medium" href=""> Gizlilik Politikası</a>'nı onaylıyorum.</p>
+    <br>
+    <button class="onayöde mt-3 w-100"><b class="text-light">Onayla ve öde</b></button>
+</div>
+
+<div class="footeronayres mb-3 mt-3 ms-3 ">
+    <div class="footerüstres d-flex align-items-center text-center justify-content-center mt-3 ">
+        <i class="fa-solid fa-globe me-2"></i>
+        <a href="" style="text-decoration: none;" class="fw-medium text-dark text-none me-2">Türkçe (TR)</a>
+        <a href="" style="text-decoration: none;" class="fw-medium text-dark text-none me-5">₺ TRY</a>
+        <div class="footerssylres"> 
+            <i class="fa-brands fa-square-facebook fa-lg me-2" style="color: #000000;"></i>
+            <i class="fa-brands fa-square-twitter fa-lg me-2" style="color: #000000;"></i>
+            <i class="fa-brands fa-square-instagram fa-lg me-2" style="color: #000000;"></i>
+        </div>
+    </div>
+
+    <p class="footer-2023res mt-4">© 2023 Airbnb, Inc.</p> 
+
+    <div class="footerresalt d-flex justify-content-center">
+        <a href="" style="text-decoration: none;" class="text-dark me-2">Gizlilik</a>
+        <a href="" style="text-decoration: none;" class="text-dark ">- Şartlar -</a>
+        <a href="" style="text-decoration: none;" class="text-dark ms-2">Site haritası</a>
+    </div>
+</div>
+{% endblock content %}
